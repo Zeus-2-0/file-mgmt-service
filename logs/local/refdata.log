@@ -72,3 +72,40 @@
 2022-03-04 13:15:07.260  INFO 2882 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-03-04 13:15:07.261  INFO 2882 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-03-04 13:15:07.265  INFO 2882 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-03-04 13:25:31.527  INFO 3174 --- [main] c.b.zeus.FileMgmtServiceApplication      : Starting FileMgmtServiceApplication using Java 17.0.1 on Balajis-Mac-mini.local with PID 3174 (/Users/balaji/Documents/Projects/Zeus/file-mgmt-service/target/classes started by balaji in /Users/balaji/Documents/Projects/Zeus/file-mgmt-service)
+2022-03-04 13:25:31.529  INFO 3174 --- [main] c.b.zeus.FileMgmtServiceApplication      : The following 2 profiles are active: "local", "clean"
+2022-03-04 13:25:31.791  INFO 3174 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-04 13:25:31.797  INFO 3174 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2022-03-04 13:25:32.026  INFO 3174 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2022-03-04 13:25:32.030  INFO 3174 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-04 13:25:32.030  INFO 3174 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-04 13:25:32.073  INFO 3174 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-04 13:25:32.073  INFO 3174 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 528 ms
+2022-03-04 13:25:32.293  INFO 3174 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.5 by Redgate
+2022-03-04 13:25:32.293  INFO 3174 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/filemgmtdb (MySQL 8.0)
+2022-03-04 13:25:32.317  INFO 3174 --- [main] o.f.core.internal.command.DbClean        : Successfully dropped pre-schema database level objects (execution time 00:00.000s)
+2022-03-04 13:25:32.333  INFO 3174 --- [main] o.f.core.internal.command.DbClean        : Successfully cleaned schema `filemgmtdb` (execution time 00:00.015s)
+2022-03-04 13:25:32.340  INFO 3174 --- [main] o.f.core.internal.command.DbClean        : Successfully cleaned schema `filemgmtdb` (execution time 00:00.006s)
+2022-03-04 13:25:32.340  INFO 3174 --- [main] o.f.core.internal.command.DbClean        : Successfully dropped post-schema database level objects (execution time 00:00.000s)
+2022-03-04 13:25:32.362  INFO 3174 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.5 by Redgate
+2022-03-04 13:25:32.375  INFO 3174 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.006s)
+2022-03-04 13:25:32.385  INFO 3174 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table `filemgmtdb`.`flyway_schema_history` ...
+2022-03-04 13:25:32.414  INFO 3174 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `filemgmtdb`: << Empty Schema >>
+2022-03-04 13:25:32.418  INFO 3174 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema `filemgmtdb` to version "1 - init table creation"
+2022-03-04 13:25:32.421  WARN 3174 --- [main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: Unknown table 'filemgmtdb.file_detail' (SQL State: 42S02 - Error Code: 1051)
+2022-03-04 13:25:32.433  INFO 3174 --- [main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema `filemgmtdb`, now at version v1 (execution time 00:00.020s)
+2022-03-04 13:25:32.475  INFO 3174 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-04 13:25:32.491  INFO 3174 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-03-04 13:25:32.544  INFO 3174 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-04 13:25:32.577  INFO 3174 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-03-04 13:25:32.605  INFO 3174 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-03-04 13:25:32.616  INFO 3174 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-03-04 13:25:32.693  INFO 3174 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-04 13:25:32.696  INFO 3174 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-04 13:25:32.712  WARN 3174 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-03-04 13:25:32.891  INFO 3174 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2022-03-04 13:25:32.896  INFO 3174 --- [main] c.b.zeus.FileMgmtServiceApplication      : Started FileMgmtServiceApplication in 1.523 seconds (JVM running for 1.731)
+2022-03-04 13:25:33.287  INFO 3174 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-03-04 13:25:33.304  INFO 3174 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-04 13:25:33.305  INFO 3174 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-03-04 13:25:33.309  INFO 3174 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,3 +1,6 @@
+zeus-file-mgmt:
+  api:
+    version: 1.0.0
 server:
   port: 8082
 spring:
@@ -19,7 +22,7 @@ spring:
     active: local, clean
 logging:
   file:
-    name: logs/local/refdata.log
+    name: logs/local/filemgmt.log
   level:
     org:
       hibernate:
