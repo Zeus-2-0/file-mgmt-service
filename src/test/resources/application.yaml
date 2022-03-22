@@ -1,3 +1,6 @@
+edi:
+  file:
+    location: /Users/edi/files/*.edi
 spring:
   h2:
     console:
