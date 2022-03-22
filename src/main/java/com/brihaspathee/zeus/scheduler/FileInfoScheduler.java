@@ -24,7 +24,7 @@ public class FileInfoScheduler {
 
     private final FileInfoProducer fileInfoProducer;
 
-    @Scheduled(fixedRate = 1000)
+    //@Scheduled(fixedRate = 1000)
     public void sendFileInfoMessage() throws JsonProcessingException {
         log.info("Scheduler running");
         FileInfo fileInfo = FileInfo.builder()
