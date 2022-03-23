@@ -27,11 +27,11 @@ public class FileInfoScheduler {
     //@Scheduled(fixedRate = 1000)
     public void sendFileInfoMessage() throws JsonProcessingException {
         log.info("Scheduler running");
-        FileInfo fileInfo = FileInfo.builder()
+        /*FileInfo fileInfo = FileInfo.builder()
                 .fileId("Test")
                 .fileName("Test File")
                 .fileDetail("Test Detail")
                 .build();
-        fileInfoProducer.sendFileInfo(fileInfo);
+        fileInfoProducer.sendFileInfo(fileInfo);*/
     }
 }
