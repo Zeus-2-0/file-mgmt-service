@@ -1,5 +1,6 @@
 package com.brihaspathee.zeus.producer;
 
+import com.brihaspathee.zeus.web.model.FileDetailDto;
 import com.brihaspathee.zeus.web.model.FileInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,9 +27,9 @@ public class FileInfoProducer {
 
     private final ObjectMapper objectMapper;
 
-    public void sendFileInfo(FileInfo fileInfo) throws JsonProcessingException {
+    public void sendFileInfo(FileDetailDto fileDetailDto) throws JsonProcessingException {
         log.info("About to send the file information");
-        String fileInfoAsString = objectMapper.writeValueAsString(fileInfo);
+        String fileInfoAsString = objectMapper.writeValueAsString(fileDetailDto);
         kafkaTemplate.send("ZEUS.FILE.STORAGE.TOPIC", fileInfoAsString);
 
     }

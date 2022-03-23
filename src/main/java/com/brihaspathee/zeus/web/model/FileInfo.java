@@ -2,6 +2,9 @@ package com.brihaspathee.zeus.web.model;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
@@ -18,16 +21,42 @@ import lombok.*;
 @AllArgsConstructor
 public class FileInfo {
 
+    private UUID fileDetailSK;
+
     private String fileId;
+
     private String fileName;
-    private String fileDetail;
+
+    private LocalDateTime fileReceivedDate;
+
+    private String tradingPartnerId;
+
+    private String senderId;
+
+    private String receiverId;
+
+    private String lineOfBusinessTypeCode;
+
+    private String marketplaceTypeCode;
+
+    private String stateTypeCode;
+
+    private String fileData;
 
     @Override
     public String toString() {
-        return "FileInfo{" +
-                "fileId='" + fileId + '\'' +
+        return "FileDetailDto{" +
+                "fileDetailSK=" + fileDetailSK +
+                ", fileId='" + fileId + '\'' +
                 ", fileName='" + fileName + '\'' +
-                ", fileDetail='" + fileDetail + '\'' +
+                ", fileReceivedDate=" + fileReceivedDate +
+                ", tradingPartnerId='" + tradingPartnerId + '\'' +
+                ", senderId='" + senderId + '\'' +
+                ", receiverId='" + receiverId + '\'' +
+                ", lineOfBusinessTypeCode='" + lineOfBusinessTypeCode + '\'' +
+                ", marketplaceTypeCode='" + marketplaceTypeCode + '\'' +
+                ", stateTypeCode='" + stateTypeCode + '\'' +
+                ", fileData='" + fileData + '\'' +
                 '}';
     }
 }

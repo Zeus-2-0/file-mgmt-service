@@ -3,6 +3,7 @@ package com.brihaspathee.zeus.web.model;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -27,12 +28,36 @@ public class FileDetailDto {
 
     private String fileName;
 
+    private LocalDateTime fileReceivedDate;
+
+    private String tradingPartnerId;
+
+    private String senderId;
+
+    private String receiverId;
+
+    private String lineOfBusinessTypeCode;
+
+    private String marketplaceTypeCode;
+
+    private String stateTypeCode;
+
+    private String fileData;
+
     @Override
     public String toString() {
         return "FileDetailDto{" +
                 "fileDetailSK=" + fileDetailSK +
                 ", fileId='" + fileId + '\'' +
                 ", fileName='" + fileName + '\'' +
+                ", fileReceivedDate=" + fileReceivedDate +
+                ", tradingPartnerId='" + tradingPartnerId + '\'' +
+                ", senderId='" + senderId + '\'' +
+                ", receiverId='" + receiverId + '\'' +
+                ", lineOfBusinessTypeCode='" + lineOfBusinessTypeCode + '\'' +
+                ", marketplaceTypeCode='" + marketplaceTypeCode + '\'' +
+                ", stateTypeCode='" + stateTypeCode + '\'' +
+                ", fileData='" + fileData + '\'' +
                 '}';
     }
 }
