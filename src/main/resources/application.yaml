@@ -1,3 +1,6 @@
+url:
+  host:
+    trading-partner: http://localhost:8081/
 edi:
   file:
     location: /Users/edi/files/*.edi
