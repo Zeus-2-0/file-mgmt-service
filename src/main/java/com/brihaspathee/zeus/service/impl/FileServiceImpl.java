@@ -2,6 +2,7 @@ package com.brihaspathee.zeus.service.impl;
 
 import com.brihaspathee.zeus.producer.FileInfoProducer;
 import com.brihaspathee.zeus.service.interfaces.FileService;
+import com.brihaspathee.zeus.service.interfaces.TradingPartnerService;
 import com.brihaspathee.zeus.web.model.FileDetailDto;
 import com.brihaspathee.zeus.web.model.TradingPartnerDto;
 import com.brihaspathee.zeus.web.response.ZeusApiResponse;
@@ -44,6 +45,8 @@ public class FileServiceImpl implements FileService {
 
     private final FileInfoProducer fileInfoProducer;
 
+    private final TradingPartnerService tradingPartnerService;
+
     @Override
     public void processFile(Resource resource) throws IOException {
         BasicFileAttributes basicAttributes = Files.readAttributes(resource.getFile().toPath(), BasicFileAttributes.class);
@@ -63,11 +66,9 @@ public class FileServiceImpl implements FileService {
         log.info("Sender Id:{}", senderId);
         log.info("Receiver Id:{}", receiverId);
         log.info("File Creation Time:{}", fileCreationTime);
-        ResponseEntity<ZeusApiResponse> response =
-                restTemplate.getForEntity("http://localhost:8081/api/v1/tp/" + senderId + "/" + receiverId, ZeusApiResponse.class);
-        ZeusApiResponse apiResponse = response.getBody();
+
         TradingPartnerDto tradingPartnerDto =
-                objectMapper.convertValue(apiResponse.getResponse(), TradingPartnerDto.class);
+                tradingPartnerService.getTradingPartner(senderId, receiverId);
         log.info("Trading Partner Info:{}", tradingPartnerDto);
 
         FileDetailDto fileDetailDto = FileDetailDto.builder()
