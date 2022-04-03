@@ -1,5 +1,8 @@
 package com.brihaspathee.zeus.service.impl;
 
+import com.brihaspathee.zeus.domain.entity.FileDetail;
+import com.brihaspathee.zeus.domain.repository.FileDetailRepository;
+import com.brihaspathee.zeus.mapper.interfaces.FileDetailMapper;
 import com.brihaspathee.zeus.producer.FileInfoProducer;
 import com.brihaspathee.zeus.service.interfaces.FileService;
 import com.brihaspathee.zeus.service.interfaces.TradingPartnerService;
@@ -39,9 +42,9 @@ import java.time.ZoneId;
 @RequiredArgsConstructor
 public class FileServiceImpl implements FileService {
 
-    private final RestTemplate restTemplate;
+    private final FileDetailMapper detailMapper;
 
-    private final ObjectMapper objectMapper;
+    private final FileDetailRepository detailRepository;
 
     private final FileInfoProducer fileInfoProducer;
 
@@ -80,8 +83,11 @@ public class FileServiceImpl implements FileService {
                 .senderId(tradingPartnerDto.getSenderId())
                 .receiverId(tradingPartnerDto.getReceiverId())
                 .marketplaceTypeCode(tradingPartnerDto.getMarketplaceTypeCode())
+                .stateTypeCode(tradingPartnerDto.getStateTypeCode())
                 .fileData(fileData)
                 .build();
+        FileDetail fileDetail = detailMapper.fileDetailDtoToFileDetail(fileDetailDto);
+        detailRepository.save(fileDetail);
         fileInfoProducer.sendFileInfo(fileDetailDto);
     }
 }
