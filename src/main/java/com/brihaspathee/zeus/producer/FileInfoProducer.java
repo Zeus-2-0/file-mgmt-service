@@ -1,7 +1,6 @@
 package com.brihaspathee.zeus.producer;
 
 import com.brihaspathee.zeus.web.model.FileDetailDto;
-import com.brihaspathee.zeus.web.model.FileInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
