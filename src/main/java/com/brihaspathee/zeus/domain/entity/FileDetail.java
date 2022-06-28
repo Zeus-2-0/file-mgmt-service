@@ -35,8 +35,8 @@ public class FileDetail {
     @Column(name = "file_detail_sk", length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
     private UUID fileDetailSK;
 
-    @Column(name = "file_id", nullable = false, length = 100)
-    private String fileId;
+    @Column(name = "zfcn", nullable = false, length = 100)
+    private String zeusFileControlNumber;
 
     @Column(name = "file_name", nullable = false, length = 100)
     private String fileName;
@@ -74,7 +74,7 @@ public class FileDetail {
     public String toString() {
         return "FileDetail{" +
                 "fileDetailSK=" + fileDetailSK +
-                ", fileId='" + fileId + '\'' +
+                ", zfcn='" + zeusFileControlNumber + '\'' +
                 ", fileName='" + fileName + '\'' +
                 ", fileReceivedDate=" + fileReceivedDate +
                 ", senderId='" + senderId + '\'' +
