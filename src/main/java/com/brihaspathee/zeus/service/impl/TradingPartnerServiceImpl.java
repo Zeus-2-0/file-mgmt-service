@@ -35,7 +35,7 @@ public class TradingPartnerServiceImpl implements TradingPartnerService {
     @Override
     public TradingPartnerDto getTradingPartner(String senderId, String receiverId) {
         ResponseEntity<ZeusApiResponse> response =
-                restTemplate.getForEntity(tradingPartnerHost+"api/v1/tp/" + senderId + "/" + receiverId, ZeusApiResponse.class);
+                restTemplate.getForEntity(tradingPartnerHost+"/api/v1/tp/" + senderId + "/" + receiverId, ZeusApiResponse.class);
         ZeusApiResponse apiResponse = response.getBody();
         TradingPartnerDto tradingPartnerDto =
                 objectMapper.convertValue(apiResponse.getResponse(), TradingPartnerDto.class);

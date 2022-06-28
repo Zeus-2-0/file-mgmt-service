@@ -29,7 +29,7 @@ public class FileDetailMapperImpl implements FileDetailMapper {
         }
         FileDetail fileDetail = FileDetail.builder()
                 .fileDetailSK(detailDto.getFileDetailSK())
-                .fileId(detailDto.getFileId())
+                .zeusFileControlNumber(detailDto.getZeusFileControlNumber())
                 .fileName(detailDto.getFileName())
                 .fileReceivedDate(detailDto.getFileReceivedDate())
                 .senderId(detailDto.getSenderId())
@@ -49,7 +49,7 @@ public class FileDetailMapperImpl implements FileDetailMapper {
         }
         FileDetailDto fileDetailDto = FileDetailDto.builder()
                 .fileDetailSK(detail.getFileDetailSK())
-                .fileId(detail.getFileId())
+                .zeusFileControlNumber(detail.getZeusFileControlNumber())
                 .fileName(detail.getFileName())
                 .fileReceivedDate(detail.getFileReceivedDate())
                 .senderId(detail.getSenderId())

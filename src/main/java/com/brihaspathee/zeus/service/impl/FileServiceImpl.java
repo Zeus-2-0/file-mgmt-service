@@ -5,7 +5,10 @@ import com.brihaspathee.zeus.domain.repository.FileDetailRepository;
 import com.brihaspathee.zeus.mapper.interfaces.FileDetailMapper;
 import com.brihaspathee.zeus.producer.FileInfoProducer;
 import com.brihaspathee.zeus.service.interfaces.FileService;
+import com.brihaspathee.zeus.service.interfaces.FileStorageService;
 import com.brihaspathee.zeus.service.interfaces.TradingPartnerService;
+import com.brihaspathee.zeus.service.interfaces.TransactionOrigService;
+import com.brihaspathee.zeus.util.ZeusRandomStringGenerator;
 import com.brihaspathee.zeus.web.model.FileDetailDto;
 import com.brihaspathee.zeus.web.model.TradingPartnerDto;
 import com.brihaspathee.zeus.web.response.ZeusApiResponse;
@@ -25,6 +28,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
+import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
@@ -50,6 +54,10 @@ public class FileServiceImpl implements FileService {
 
     private final TradingPartnerService tradingPartnerService;
 
+    private final TransactionOrigService transactionOrigService;
+
+    private final FileStorageService fileStorageService;
+
     @Override
     public void processFile(Resource resource) throws IOException {
         BasicFileAttributes basicAttributes = Files.readAttributes(resource.getFile().toPath(), BasicFileAttributes.class);
@@ -74,8 +82,8 @@ public class FileServiceImpl implements FileService {
                 tradingPartnerService.getTradingPartner(senderId, receiverId);
         log.info("Trading Partner Info:{}", tradingPartnerDto);
 
-        FileDetailDto fileDetailDto = FileDetailDto.builder()
-                .fileId("Test File Id")
+        FileDetail fileDetail = FileDetail.builder()
+                .zeusFileControlNumber(ZeusRandomStringGenerator.randomString(15))
                 .fileName(fileName)
                 .fileReceivedDate(fileCreationTime)
                 .tradingPartnerId(tradingPartnerDto.getTradingPartnerId())
@@ -84,10 +92,15 @@ public class FileServiceImpl implements FileService {
                 .receiverId(tradingPartnerDto.getReceiverId())
                 .marketplaceTypeCode(tradingPartnerDto.getMarketplaceTypeCode())
                 .stateTypeCode(tradingPartnerDto.getStateTypeCode())
-                .fileData(fileData)
+                //.fileData(fileData)
                 .build();
-        FileDetail fileDetail = detailMapper.fileDetailDtoToFileDetail(fileDetailDto);
-        detailRepository.save(fileDetail);
-        fileInfoProducer.sendFileInfo(fileDetailDto);
+        fileDetail = detailRepository.save(fileDetail);
+        FileDetailDto fileDetailDto = detailMapper.fileDetailToFileDetailDto(fileDetail);
+        fileDetailDto.setFileData(fileData);
+        //fileInfoProducer.sendFileInfo(fileDetailDto);
+        transactionOrigService.postFileDetails(fileDetailDto);
+        fileStorageService.postFileDetails(fileDetailDto);
     }
+
+
 }

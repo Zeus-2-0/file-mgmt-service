@@ -19,16 +19,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * To change this template use File | Settings | File and Code Template
  */
 @Slf4j
-@Component
+//@Component
 @RequiredArgsConstructor
-public class LoadEDIFile implements CommandLineRunner {
+public class LoadEDIFile { //implements CommandLineRunner {
 
     private final FileLoadingService fileLoadingService;
 
     private final FileService fileService;
 
 
-    @Override
+    //@Override
     public void run(String... args) throws Exception {
         Resource[] resources = fileLoadingService.loadEDIFiles();
         log.info("No. of Files:{}", resources.length);

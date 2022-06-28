@@ -30,7 +30,7 @@ public class FileInfoScheduler {
 
     private final FileService fileService;
 
-    //@Scheduled(fixedRate = 60000)
+    @Scheduled(fixedRate = 60000, initialDelay = 60000)
     public void sendFileInfoMessage() throws Exception {
         log.info("Scheduler running");
         Resource[] resources = fileLoadingService.loadEDIFiles();
@@ -38,5 +38,7 @@ public class FileInfoScheduler {
         for(Resource resource: resources){
             fileService.processFile(resource);
         }
+        fileLoadingService.archiveFiles(resources);
+
     }
 }
