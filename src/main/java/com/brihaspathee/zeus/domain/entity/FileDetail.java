@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -53,7 +54,7 @@ public class FileDetail {
     @Column(name = "trading_partner_id", nullable = true, length=100)
     private String tradingPartnerId;
 
-    @Column(name = "lob_type_code", nullable = true, length=50)
+    @Column(name = "line_of_business_type_code", nullable = true, length=50)
     private String lineOfBusinessTypeCode;
 
     @Column(name = "marketplace_type_code", nullable = true, length=50)
@@ -69,6 +70,9 @@ public class FileDetail {
     @UpdateTimestamp
     @Column(name = "updated_date", nullable = true)
     private LocalDateTime updatedDate;
+
+    @OneToMany(mappedBy = "fileDetail")
+    private Set<FileAcknowledgement> fileAcknowledgement;
 
     @Override
     public String toString() {

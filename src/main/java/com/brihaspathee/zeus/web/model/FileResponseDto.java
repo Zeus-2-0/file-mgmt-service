@@ -18,12 +18,31 @@ import lombok.*;
 @AllArgsConstructor
 public class FileResponseDto {
 
+    /**
+     * The acknowledgement key for receiving the file detail
+     */
     private String fileReceiptAck;
 
+    /**
+     * The name of the service that returns the acknowledgment
+     */
+    private String serviceName;
+
+    /**
+     * The zeus file control number of the file for which the acknowledgement is sent
+     */
+    private String zeusFileControlNumber;
+
+    /**
+     * toString method
+     * @return
+     */
     @Override
     public String toString() {
         return "FileResponseDto{" +
                 "fileReceiptAck='" + fileReceiptAck + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", zeusFileControlNumber='" + zeusFileControlNumber + '\'' +
                 '}';
     }
 }
