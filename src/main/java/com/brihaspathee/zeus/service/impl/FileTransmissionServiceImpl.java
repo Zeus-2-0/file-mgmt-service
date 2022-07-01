@@ -1,5 +1,8 @@
 package com.brihaspathee.zeus.service.impl;
 
+import com.brihaspathee.zeus.domain.entity.FileAcknowledgement;
+import com.brihaspathee.zeus.domain.entity.FileDetail;
+import com.brihaspathee.zeus.domain.repository.FileAcknowledgementRepository;
 import com.brihaspathee.zeus.service.interfaces.FileTransmissionService;
 import com.brihaspathee.zeus.web.model.FileDetailDto;
 import com.brihaspathee.zeus.web.model.FileResponseDto;
@@ -33,6 +36,8 @@ public class FileTransmissionServiceImpl implements FileTransmissionService {
 
     private final WebClient webClient;
 
+    private final FileAcknowledgementRepository acknowledgementRepository;
+
     @Override
     public void postFileDetails(String url, FileDetailDto fileDetailDto) {
             useWebClient(url,fileDetailDto);
@@ -52,7 +57,14 @@ public class FileTransmissionServiceImpl implements FileTransmissionService {
             log.info("Some Exception occurred:{}", exception.getMessage());
         }).subscribe(response -> {
             log.info("Web Client API Response:{}", response.getResponse().getFileReceiptAck());
-            response.getResponse();
+            FileAcknowledgement fileAcknowledgement = FileAcknowledgement.builder()
+                    .fileDetail(FileDetail.builder()
+                            .fileDetailSK(fileDetailDto.getFileDetailSK())
+                            .build())
+                    .acknowledgement(response.getResponse().getFileReceiptAck())
+                    .ackSource(response.getResponse().getServiceName())
+                    .build();
+            acknowledgementRepository.save(fileAcknowledgement);
         });
 
     }
