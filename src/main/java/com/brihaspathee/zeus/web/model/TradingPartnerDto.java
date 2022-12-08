@@ -73,6 +73,13 @@ public class TradingPartnerDto {
     private String lineOfBusinessTypeCode;
 
     @JsonProperty(required = true)
+    @Schema(description = "Business Unit associated with the trading partner", example = "HIX")
+    //@NotNull
+    //@NotBlank
+    @Size(min = 2, max = 100)
+    private String businessUnitTypeCode;
+
+    @JsonProperty(required = true)
     @Schema(description = "Marketplace Type Code of the trading partner", example = "FFM")
     //@NotNull
     //@NotBlank
@@ -96,21 +103,9 @@ public class TradingPartnerDto {
                 ", senderId='" + senderId + '\'' +
                 ", receiverId='" + receiverId + '\'' +
                 ", lineOfBusinessTypeCode='" + lineOfBusinessTypeCode + '\'' +
+                ", businessUnitTypeCode='" + businessUnitTypeCode + '\'' +
                 ", marketplaceTypeCode='" + marketplaceTypeCode + '\'' +
                 ", stateTypeCode='" + stateTypeCode + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TradingPartnerDto that = (TradingPartnerDto) o;
-        return tradingPartnerSK.equals(that.tradingPartnerSK);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(tradingPartnerSK);
     }
 }

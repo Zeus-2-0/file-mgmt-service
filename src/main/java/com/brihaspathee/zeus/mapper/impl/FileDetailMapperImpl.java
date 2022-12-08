@@ -36,6 +36,7 @@ public class FileDetailMapperImpl implements FileDetailMapper {
                 .receiverId(detailDto.getReceiverId())
                 .tradingPartnerId(detailDto.getTradingPartnerId())
                 .lineOfBusinessTypeCode(detailDto.getLineOfBusinessTypeCode())
+                .businessUnitTypeCode(detailDto.getBusinessUnitTypeCode())
                 .marketplaceTypeCode(detailDto.getMarketplaceTypeCode())
                 .stateTypeCode(detailDto.getStateTypeCode())
                 .build();
@@ -56,6 +57,7 @@ public class FileDetailMapperImpl implements FileDetailMapper {
                 .receiverId(detail.getReceiverId())
                 .tradingPartnerId(detail.getTradingPartnerId())
                 .lineOfBusinessTypeCode(detail.getLineOfBusinessTypeCode())
+                .businessUnitTypeCode(detail.getBusinessUnitTypeCode())
                 .marketplaceTypeCode(detail.getMarketplaceTypeCode())
                 .stateTypeCode(detail.getStateTypeCode())
                 .build();

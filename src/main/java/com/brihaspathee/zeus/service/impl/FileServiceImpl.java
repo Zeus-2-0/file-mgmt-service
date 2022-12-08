@@ -88,6 +88,7 @@ public class FileServiceImpl implements FileService {
                 .fileReceivedDate(fileCreationTime)
                 .tradingPartnerId(tradingPartnerDto.getTradingPartnerId())
                 .lineOfBusinessTypeCode(tradingPartnerDto.getLineOfBusinessTypeCode())
+                .businessUnitTypeCode(tradingPartnerDto.getBusinessUnitTypeCode())
                 .senderId(tradingPartnerDto.getSenderId())
                 .receiverId(tradingPartnerDto.getReceiverId())
                 .marketplaceTypeCode(tradingPartnerDto.getMarketplaceTypeCode())
