@@ -57,6 +57,9 @@ public class FileDetail {
     @Column(name = "line_of_business_type_code", nullable = true, length=50)
     private String lineOfBusinessTypeCode;
 
+    @Column(name = "business_unit_type_code", nullable = true, length=50)
+    private String businessUnitTypeCode;
+
     @Column(name = "marketplace_type_code", nullable = true, length=50)
     private String marketplaceTypeCode;
 
