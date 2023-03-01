@@ -5,8 +5,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.Null;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Null;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 import java.util.UUID;
 
