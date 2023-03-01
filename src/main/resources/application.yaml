@@ -29,6 +29,7 @@ spring:
   flyway:
     user: filemgmtadmin
     password: password
+    clean-disabled: false
   profiles:
     active: local, clean
 logging:
