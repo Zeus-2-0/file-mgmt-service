@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/balaji/Documents/mac-mini/Projects.nosync/Zeus/file-mgmt-service/src/main/java/com/brihaspathee/zeus/web/resource</OriginalElement>
+  <nodes>
+    <node x="-66.5" y="110.0">com.brihaspathee.zeus.web.resource.impl.FileAPIImpl</node>
+    <node x="-66.5" y="-14.0">com.brihaspathee.zeus.web.resource.interfaces.FileAPI</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.brihaspathee.zeus.web.resource.impl.FileAPIImpl" target="com.brihaspathee.zeus.web.resource.interfaces.FileAPI" relationship="REALIZATION">
+      <point x="0.0" y="-44.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.5" showDependencies="false" x="195.0" y="102.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,16 +1,12 @@
 package com.brihaspathee.zeus.scheduler;
 
-import com.brihaspathee.zeus.producer.FileInfoProducer;
 import com.brihaspathee.zeus.service.interfaces.FileLoadingService;
 import com.brihaspathee.zeus.service.interfaces.FileService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import java.io.IOException;
 
 /**
  * Created in Intellij IDEA
@@ -31,7 +27,7 @@ public class FileInfoScheduler {
     private final FileService fileService;
 
     @Scheduled(fixedRate = 60000, initialDelay = 60000)
-    public void sendFileInfoMessage() throws Exception {
+    public void processFile() throws Exception {
         log.info("Scheduler running");
         Resource[] resources = fileLoadingService.loadEDIFiles();
         log.info("No. of Files:{}", resources.length);

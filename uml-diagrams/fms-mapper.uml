@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/balaji/Documents/mac-mini/Projects.nosync/Zeus/file-mgmt-service/src/main/java/com/brihaspathee/zeus/mapper</OriginalElement>
+  <nodes>
+    <node x="-219.5" y="-80.0">com.brihaspathee.zeus.mapper.impl.FileDetailMapperImpl</node>
+    <node x="-179.5" y="120.0">com.brihaspathee.zeus.mapper.interfaces.FileDetailMapper</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.brihaspathee.zeus.mapper.impl.FileDetailMapperImpl" target="com.brihaspathee.zeus.mapper.interfaces.FileDetailMapper" relationship="REALIZATION">
+      <point x="40.0" y="80.0" />
+      <point x="0.0" y="-67.5" />
+    </edge>
+  </edges>
+  <settings layout="Compact" zoom="1.0" showDependencies="false" x="20.0" y="88.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
