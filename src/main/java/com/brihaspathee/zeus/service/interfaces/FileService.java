@@ -1,8 +1,10 @@
 package com.brihaspathee.zeus.service.interfaces;
 
+import com.brihaspathee.zeus.test.ZeusTransactionControlNumber;
 import org.springframework.core.io.Resource;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created in Intellij IDEA
@@ -15,5 +17,7 @@ import java.io.IOException;
  */
 public interface FileService {
 
-    void processFile(Resource resource) throws IOException;
+    void processFile(Resource resource, List<ZeusTransactionControlNumber> testTransactionControlNumbers) throws IOException;
+
+    void testProcessFile(Resource resource) throws IOException;
 }

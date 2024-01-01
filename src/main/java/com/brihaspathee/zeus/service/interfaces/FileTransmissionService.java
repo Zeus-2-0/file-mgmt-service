@@ -1,9 +1,6 @@
 package com.brihaspathee.zeus.service.interfaces;
 
-import com.brihaspathee.zeus.web.model.FileDetailDto;
-import com.brihaspathee.zeus.web.model.FileResponseDto;
-
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.brihaspathee.zeus.dto.transaction.FileDetailDto;
 
 /**
  * Created in Intellij IDEA

@@ -1,9 +1,12 @@
 url:
   host:
-    trading-partner: http://localhost:8081/
+    trading-partner: http://localhost:8081
+    transaction-orig-service: http://localhost:8085
+    file-storage-service: http://localhost:8083
 edi:
   file:
-    location: /Users/edi/files/*.edi
+    location: /Users/edi/test/files/
+    archive-location: /Users/edi/test/files/archive
 spring:
   h2:
     console:

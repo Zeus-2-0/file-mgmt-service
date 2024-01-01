@@ -3,8 +3,8 @@ package com.brihaspathee.zeus.service.impl;
 import com.brihaspathee.zeus.domain.entity.FileAcknowledgement;
 import com.brihaspathee.zeus.domain.entity.FileDetail;
 import com.brihaspathee.zeus.domain.repository.FileAcknowledgementRepository;
+import com.brihaspathee.zeus.dto.transaction.FileDetailDto;
 import com.brihaspathee.zeus.service.interfaces.FileTransmissionService;
-import com.brihaspathee.zeus.web.model.FileDetailDto;
 import com.brihaspathee.zeus.web.model.FileResponseDto;
 import com.brihaspathee.zeus.web.response.ZeusApiResponse;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA

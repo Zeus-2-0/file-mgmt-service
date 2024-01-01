@@ -1,16 +1,14 @@
 package com.brihaspathee.zeus.producer;
 
+import com.brihaspathee.zeus.dto.transaction.FileDetailDto;
 import com.brihaspathee.zeus.message.MessageMetadata;
 import com.brihaspathee.zeus.message.ZeusMessagePayload;
-import com.brihaspathee.zeus.web.model.FileDetailDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
 
 /**
  * Created in Intellij IDEA

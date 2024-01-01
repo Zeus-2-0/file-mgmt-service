@@ -1,6 +1,6 @@
 package com.brihaspathee.zeus.web.resource.impl;
 
-import com.brihaspathee.zeus.web.model.FileDetailDto;
+import com.brihaspathee.zeus.dto.transaction.FileDetailDto;
 import com.brihaspathee.zeus.web.resource.interfaces.FileAPI;
 import com.brihaspathee.zeus.web.response.ZeusApiResponse;
 import lombok.RequiredArgsConstructor;
