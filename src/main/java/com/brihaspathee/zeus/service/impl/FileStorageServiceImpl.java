@@ -1,17 +1,12 @@
 package com.brihaspathee.zeus.service.impl;
 
+import com.brihaspathee.zeus.dto.transaction.FileDetailDto;
 import com.brihaspathee.zeus.service.interfaces.FileStorageService;
 import com.brihaspathee.zeus.service.interfaces.FileTransmissionService;
-import com.brihaspathee.zeus.web.model.FileDetailDto;
-import com.brihaspathee.zeus.web.model.FileResponseDto;
-import com.brihaspathee.zeus.web.response.ZeusApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * Created in Intellij IDEA

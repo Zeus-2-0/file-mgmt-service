@@ -32,7 +32,7 @@ public class FileInfoScheduler {
         Resource[] resources = fileLoadingService.loadEDIFiles();
         log.info("No. of Files:{}", resources.length);
         for(Resource resource: resources){
-            fileService.processFile(resource);
+            fileService.processFile(resource, null);
         }
         fileLoadingService.archiveFiles(resources);
 

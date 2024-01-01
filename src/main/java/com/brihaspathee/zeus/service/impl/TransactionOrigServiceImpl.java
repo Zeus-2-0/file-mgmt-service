@@ -1,23 +1,12 @@
 package com.brihaspathee.zeus.service.impl;
 
+import com.brihaspathee.zeus.dto.transaction.FileDetailDto;
 import com.brihaspathee.zeus.service.interfaces.FileTransmissionService;
 import com.brihaspathee.zeus.service.interfaces.TransactionOrigService;
-import com.brihaspathee.zeus.web.model.FileDetailDto;
-import com.brihaspathee.zeus.web.model.FileResponseDto;
-import com.brihaspathee.zeus.web.response.ZeusApiResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.ClientResponse;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created in Intellij IDEA

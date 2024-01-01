@@ -1,6 +1,6 @@
 package com.brihaspathee.zeus.service.interfaces;
 
-import com.brihaspathee.zeus.web.model.FileDetailDto;
+import com.brihaspathee.zeus.dto.transaction.FileDetailDto;
 
 /**
  * Created in Intellij IDEA

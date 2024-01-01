@@ -1,7 +1,7 @@
 package com.brihaspathee.zeus.mapper.interfaces;
 
 import com.brihaspathee.zeus.domain.entity.FileDetail;
-import com.brihaspathee.zeus.web.model.FileDetailDto;
+import com.brihaspathee.zeus.dto.transaction.FileDetailDto;
 
 import java.util.Set;
 
