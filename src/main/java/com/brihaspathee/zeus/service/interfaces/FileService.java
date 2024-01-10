@@ -18,6 +18,4 @@ import java.util.List;
 public interface FileService {
 
     void processFile(Resource resource, List<ZeusTransactionControlNumber> testTransactionControlNumbers) throws IOException;
-
-    void testProcessFile(Resource resource) throws IOException;
 }

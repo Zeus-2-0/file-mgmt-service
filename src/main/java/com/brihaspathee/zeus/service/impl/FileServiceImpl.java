@@ -100,26 +100,4 @@ public class FileServiceImpl implements FileService {
         fileStorageService.postFileDetails(fileDetailDto);
     }
 
-    @Override
-    public void testProcessFile(Resource resource) throws IOException {
-        BasicFileAttributes basicAttributes = Files.readAttributes(resource.getFile().toPath(), BasicFileAttributes.class);
-        FileTime fileTime = basicAttributes.creationTime();
-        LocalDateTime fileCreationTime = LocalDateTime.ofInstant(fileTime.toInstant(), ZoneId.systemDefault());
-        String fileName = resource.getFilename();
-        InputStream inputStream = resource.getInputStream();
-        byte[] fileBinaryData = FileCopyUtils.copyToByteArray(inputStream);
-        String fileData = new String(fileBinaryData, StandardCharsets.UTF_8);
-        fileData = fileData.replaceAll("\\r\\n|\\r|\\n", "");
-        String interchangeSegment = fileData.split("~")[0];
-        String senderId = interchangeSegment.split("\\*")[6].trim();
-        String receiverId = interchangeSegment.split("\\*")[8].trim();
-        log.info("File Name:{}", fileName);
-        log.info("File Data:{}", fileData);
-        log.info("Interchange Segment:{}", interchangeSegment);
-        log.info("Sender Id:{}", senderId);
-        log.info("Receiver Id:{}", receiverId);
-        log.info("File Creation Time:{}", fileCreationTime);
-    }
-
-
 }
