@@ -5,6 +5,7 @@ import com.brihaspathee.zeus.test.ZeusTransactionControlNumber;
 import lombok.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created in Intellij IDEA
@@ -23,29 +24,24 @@ import java.util.List;
 public class EDITransactionProcessingRequest {
 
     /**
-     * Identifies if an exception is expected
-     */
-    private boolean exceptionExpected;
-
-    /**
      * If an exception is expected the service in which the exception is expected
      */
     private String serviceName;
 
     /**
-     * The exception code when an exception is expected
+     * The name of the folder that is to be used for testing
      */
-    private String exceptionCode;
-
-    /**
-     * The exception message when an exception is expected
-     */
-    private String exceptionMessage;
+    private String folderName;
 
     /**
      * The name of the file that is to be used for testing
      */
     private String fileName;
+
+    /**
+     * The icn of the file that is to be used for testing
+     */
+    private String icn;
 
     /**
      * Contains the list of transaction control numbers that is to be used for the test
@@ -55,15 +51,15 @@ public class EDITransactionProcessingRequest {
     /**
      * The account dto that is to be expected after the transaction is processed successfully
      */
-    private AccountDto expectedAccountDto;
+    private Map<String,EDIExpectedOutput> expectedOutput;
 
     @Override
     public String toString() {
         return "EDITransactionProcessingRequest{" +
-                "exceptionExpected=" + exceptionExpected +
-                ", exceptionCode='" + exceptionCode + '\'' +
-                ", exceptionMessage='" + exceptionMessage + '\'' +
-                ", fileName='" + fileName + '\'' +
+                "serviceName='" + serviceName + '\'' +
+                ", folderName='" + folderName + '\'' +
+                ", transactionControlNumbers=" + transactionControlNumbers +
+                ", expectedOutput=" + expectedOutput +
                 '}';
     }
 }

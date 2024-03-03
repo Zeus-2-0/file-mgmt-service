@@ -4,9 +4,12 @@ import com.brihaspathee.zeus.service.interfaces.FileLoadingService;
 import com.brihaspathee.zeus.service.interfaces.FileService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 /**
  * Created in Intellij IDEA
@@ -22,19 +25,35 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class FileInfoScheduler {
 
+    /**
+     * File Loading Service instance
+     */
     private final FileLoadingService fileLoadingService;
 
+    /**
+     * File Service instance
+     */
     private final FileService fileService;
 
+    /**
+     * The spring environment instance
+     */
+    private final Environment environment;
+
+    /**
+     * Process EDI files
+     * @throws Exception
+     */
     @Scheduled(fixedRate = 60000, initialDelay = 60000)
     public void processFile() throws Exception {
-        log.info("Scheduler running");
-        Resource[] resources = fileLoadingService.loadEDIFiles();
-        log.info("No. of Files:{}", resources.length);
-        for(Resource resource: resources){
-            fileService.processFile(resource, null);
+        if(!Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
+            log.info("Scheduler running");
+            Resource[] resources = fileLoadingService.loadEDIFiles();
+            log.info("No. of Files:{}", resources.length);
+            for(Resource resource: resources){
+                fileService.processFile(resource, null);
+            }
+            fileLoadingService.archiveFiles(resources);
         }
-        fileLoadingService.archiveFiles(resources);
-
     }
 }

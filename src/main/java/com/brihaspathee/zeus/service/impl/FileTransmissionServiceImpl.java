@@ -30,12 +30,26 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class FileTransmissionServiceImpl implements FileTransmissionService {
 
+    /**
+     * Instance of rest template
+     */
     private final RestTemplate restTemplate;
 
+    /**
+     * Instance of web client
+     */
     private final WebClient webClient;
 
+    /**
+     * Instance of file acknowledgment repository
+     */
     private final FileAcknowledgementRepository acknowledgementRepository;
 
+    /**
+     * Post the details of the file to the respective services
+     * @param url
+     * @param fileDetailDto
+     */
     @Override
     public void postFileDetails(String url, FileDetailDto fileDetailDto) {
             useWebClient(url,fileDetailDto);

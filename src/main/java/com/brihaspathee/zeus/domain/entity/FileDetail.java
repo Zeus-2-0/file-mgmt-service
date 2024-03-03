@@ -39,6 +39,9 @@ public class FileDetail {
     @Column(name = "zfcn", nullable = false, length = 100)
     private String zeusFileControlNumber;
 
+    @Column(name = "icn", nullable = false, length = 100)
+    private String interchangeControlNumber;
+
     @Column(name = "file_name", nullable = false, length = 100)
     private String fileName;
 

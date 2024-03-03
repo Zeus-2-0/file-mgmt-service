@@ -3,6 +3,7 @@ drop table if exists `filemgmtdb`.`file_acknowledgement`;
 CREATE TABLE IF NOT EXISTS `filemgmtdb`.`file_detail` (
     `file_detail_sk` VARCHAR(36) NOT NULL COMMENT 'Primary key that identifies the file within the table',
     `zfcn` VARCHAR(100) NOT NULL COMMENT 'A unique file id that is assigned to the file and is exposed to the users',
+    `icn` VARCHAR(100) NOT NULL COMMENT 'A unique file id that is assigned to the file and is exposed to the users',
     `file_name` VARCHAR(100) NOT NULL COMMENT 'The name of the file',
     `file_received_date` DATETIME NOT NULL COMMENT 'The date when the file was received',
     `sender_id` VARCHAR(100) NOT NULL COMMENT 'The sender id of the trading partner who sent the file',
