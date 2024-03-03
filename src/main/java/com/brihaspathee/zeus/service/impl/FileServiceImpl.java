@@ -67,11 +67,13 @@ public class FileServiceImpl implements FileService {
         String interchangeSegment = fileData.split("~")[0];
         String senderId = interchangeSegment.split("\\*")[6].trim();
         String receiverId = interchangeSegment.split("\\*")[8].trim();
+        String icn = interchangeSegment.split("\\*")[13].trim();
         log.info("File Name:{}", fileName);
         log.info("File Data:{}", fileData);
         log.info("Interchange Segment:{}", interchangeSegment);
         log.info("Sender Id:{}", senderId);
         log.info("Receiver Id:{}", receiverId);
+        log.info("ICN:{}", icn);
         log.info("File Creation Time:{}", fileCreationTime);
 
         TradingPartnerDto tradingPartnerDto =
@@ -80,6 +82,7 @@ public class FileServiceImpl implements FileService {
 
         FileDetail fileDetail = FileDetail.builder()
                 .zeusFileControlNumber(ZeusRandomStringGenerator.randomString(15))
+                .interchangeControlNumber(icn)
                 .fileName(fileName)
                 .fileReceivedDate(fileCreationTime)
                 .tradingPartnerId(tradingPartnerDto.getTradingPartnerId())

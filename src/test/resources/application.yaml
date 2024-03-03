@@ -3,6 +3,8 @@ url:
     trading-partner: http://localhost:8081
     transaction-orig-service: http://localhost:8085
     file-storage-service: http://localhost:8083
+    transaction-manager: http://localhost:8095
+    member-management-service: http://localhost:8084
 edi:
   file:
     location: /Users/edi/test/files/

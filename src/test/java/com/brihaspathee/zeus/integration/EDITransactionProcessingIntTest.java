@@ -1,14 +1,22 @@
 package com.brihaspathee.zeus.integration;
 
+import com.brihaspathee.zeus.constants.ZeusServiceNames;
+import com.brihaspathee.zeus.dto.account.AccountDto;
+import com.brihaspathee.zeus.dto.account.AccountList;
+import com.brihaspathee.zeus.dto.transaction.TransactionDto;
 import com.brihaspathee.zeus.service.interfaces.FileService;
 import com.brihaspathee.zeus.test.BuildTestData;
 import com.brihaspathee.zeus.test.TestClass;
 import com.brihaspathee.zeus.test.ZeusTransactionControlNumber;
+import com.brihaspathee.zeus.test.validator.AccountValidator;
+import com.brihaspathee.zeus.test.validator.TransactionValidator;
+import com.brihaspathee.zeus.web.model.EDIExpectedOutput;
 import com.brihaspathee.zeus.web.model.EDITransactionProcessingRequest;
+import com.brihaspathee.zeus.web.response.ZeusApiResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +26,18 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
-import org.springframework.util.FileCopyUtils;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.nio.file.attribute.FileTime;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created in Intellij IDEA
@@ -44,13 +51,25 @@ import java.util.List;
 @Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class EDITransactionProcessingIntTest {
+
+    /**
+     * The host for the transaction manager
+     */
+    @Value("${url.host.transaction-manager}")
+    private String transactionManagerHost;
+
+    /**
+     * The host for the member management service
+     */
+    @Value("${url.host.member-management-service}")
+    private String mmsHost;
 
     /**
      * The spring environment instance
      */
-    @Autowired
-    private Environment environment;
+    private static Environment environment;
 
     /**
      * Object mapper to read the file and convert it to an object
@@ -61,8 +80,17 @@ public class EDITransactionProcessingIntTest {
     /**
      * Rest template to call the api endpoint
      */
-    @Autowired
-    private TestRestTemplate testRestTemplate;
+    private static TestRestTemplate testRestTemplate;
+
+    /**
+     * The account validation instance to validate the details of the account
+     */
+    private final AccountValidator accountValidator = new AccountValidator();
+
+    /**
+     * The account validation instance to validate the details of the account
+     */
+    private final TransactionValidator transactionValidator = new TransactionValidator();
 
     /**
      * The file that contains the test data
@@ -84,7 +112,7 @@ public class EDITransactionProcessingIntTest {
     /**
      * The list of test requests
      */
-    private List<EDITransactionProcessingRequest> requests = new ArrayList<>();
+    private static List<EDITransactionProcessingRequest> requests = new ArrayList<>();
 
     /**
      * This is the property in application.yaml that
@@ -112,6 +140,12 @@ public class EDITransactionProcessingIntTest {
     @Autowired
     private FileService fileService;
 
+    @Autowired
+    private void init(Environment environment, TestRestTemplate testRestTemplate) {
+        EDITransactionProcessingIntTest.environment = environment;
+        EDITransactionProcessingIntTest.testRestTemplate = testRestTemplate;
+    }
+
     /**
      * The setup method is executed before each test method is executed
      * @param testInfo
@@ -119,37 +153,214 @@ public class EDITransactionProcessingIntTest {
      */
     @BeforeEach
     void setUp(TestInfo testInfo) throws IOException {
+        log.info("Inside setup");
 
         // Read the file information and convert to test class object
         ediTransactionProcessingRequestTestClass = objectMapper.readValue(resourceFile.getFile(), new TypeReference<TestClass<EDITransactionProcessingRequest>>() {});
 
+        accountValidator.setTestServiceName(ZeusServiceNames.FILE_MGMT_SERVICE);
+
         // Build the test data for the test method that is to be executed
-        this.requests = buildTestData.buildData(testInfo.getTestMethod().get().getName(),this.ediTransactionProcessingRequestTestClass);
+        requests = buildTestData.buildData(testInfo.getTestMethod().get().getName(),this.ediTransactionProcessingRequestTestClass);
+    }
+
+    @AfterAll
+    static void cleanUp(){
+
+        if(Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
+            log.info("Inside Cleanup");
+            // Clean up the data in file storage service
+            cleanUpFileStorageService();
+            // Clean up the data in transaction origination service
+            cleanUpTransactionOriginationService();
+            // Clean up the data in transaction storage service
+            cleanUpTransactionStorageService();
+            // Clean up the data in data transformation service
+            cleanUpDataTransformerService();
+            // Clean up the data in transaction manager service
+            cleanUpTransactionManagerService();
+            // Clean up the data in validation service
+            cleanUpValidationService();
+            // Clean up the data in account processor service
+            cleanUpAccountProcessorService();
+            // Clean up the data in member management service
+            cleanUpMemberManagementService();
+        }
+
     }
 
     /**
      * This method tests the processing of the transaction
      * @param repetitionInfo the repetition identifies the test iteration
      */
-    @RepeatedTest(1)
+    @RepeatedTest(3)
     @Order(1)
-    void testProcessTransaction(RepetitionInfo repetitionInfo) throws IOException {
+    void testProcessTransaction(RepetitionInfo repetitionInfo) throws IOException, InterruptedException {
         if(Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
+
             // Retrieve the accounting processing request for the repetition
             EDITransactionProcessingRequest processingRequest = requests.get(repetitionInfo.getCurrentRepetition() - 1);
             log.info("Processing Request:{}", processingRequest);
 
-            String ediFile = ediFileLocation + processingRequest.getFileName();
-            log.info("Edi File Location:{}", ediFileLocation + ediFile);
+            String ediFile = ediFileLocation + processingRequest.getFolderName() + "/" + processingRequest.getFileName();
+            log.info("Edi File to be tested:{}", ediFile);
             List<ZeusTransactionControlNumber> testTransactionControlNumbers = processingRequest.getTransactionControlNumbers();
-            log.info("Transaction Control Numbers:{}", testTransactionControlNumbers);
+//            log.info("Transaction Control Numbers:{}", testTransactionControlNumbers);
             Resource [] resources = applicationContext.getResources("file:"+ediFile);
             for(Resource resource: resources){
+                String fileName = resource.getFilename();
+                log.info("File Name to be tested:{}", fileName);
                 fileService.processFile(resource, testTransactionControlNumbers);
+                TimeUnit.SECONDS.sleep(5);
             }
+
+            Map<String, EDIExpectedOutput> expectedOutputMap = processingRequest.getExpectedOutput();
+            testTransactionControlNumbers.forEach(zeusTransactionControlNumber -> {
+                String transactionControlNumber = zeusTransactionControlNumber.getTcn();
+                EDIExpectedOutput ediExpectedOutput = expectedOutputMap.get(transactionControlNumber);
+                log.info("Expected outputs for transaction control number:{}", transactionControlNumber);
+                TransactionDto expectedTransaction = ediExpectedOutput.getExpectedTransactionDto();
+                TransactionDto actualTransaction = getTransactionByZtcn(zeusTransactionControlNumber.getZtcn());
+                transactionValidator.assertTransaction(expectedTransaction, actualTransaction);
+                AccountDto expectedAccount = ediExpectedOutput.getExpectedAccountDto();
+                AccountDto actualAccount = getAccountByAccountNumber(ediExpectedOutput.getExpectedAccountDto().getAccountNumber());
+                try {
+                    accountValidator.assertAccount(expectedAccount, actualAccount);
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         }else{
             log.info("Environment is not integration testing, hence not running the test");
         }
+    }
 
+    /**
+     * Get transaction by ZTCN
+     * @param ztcn
+     * @return
+     */
+    private TransactionDto getTransactionByZtcn(String ztcn){
+        log.info("Transaction Manager Host:{}", transactionManagerHost);
+        String uri = transactionManagerHost+"/api/v1/zeus/transaction/"+ztcn;
+        log.info("URI:{}", uri);
+        ResponseEntity<ZeusApiResponse> transactionResponseEntity  =
+                testRestTemplate.getForEntity(
+                        uri,
+                        ZeusApiResponse.class);
+        // Get the response body from the response
+        ZeusApiResponse transactionResponse = transactionResponseEntity.getBody();
+        // get the transaction response
+        assert transactionResponse != null;
+        TransactionDto transactionDto =
+                objectMapper.convertValue(transactionResponse.getResponse(), TransactionDto.class);
+        log.info("Actual Transaction Dto:{}", transactionDto);
+        return transactionDto;
+    }
+
+    /**
+     * Get the account dto using the account number
+     * @param accountNumber
+     * @return
+     */
+    private AccountDto getAccountByAccountNumber(String accountNumber){
+        log.info("Member Management Service Host:{}", mmsHost);
+        String uri = mmsHost+"/api/v1/zeus/account/"+accountNumber;
+        log.info("URI:{}", uri);
+        ResponseEntity<ZeusApiResponse> updatedAccountResponseEntity  =
+                testRestTemplate.getForEntity(
+                        uri,
+                        ZeusApiResponse.class);
+        // Get the response body from the response
+        ZeusApiResponse updatedAccountResponse = updatedAccountResponseEntity.getBody();
+        // get the list of accounts that matched
+        assert updatedAccountResponse != null;
+        AccountList accountList =
+                objectMapper.convertValue(updatedAccountResponse.getResponse(), AccountList.class);
+        assertNotNull(accountList);
+        assertTrue(accountList.getAccountDtos().stream().findFirst().isPresent());
+        AccountDto accountDto = accountList.getAccountDtos().stream().findFirst().get();
+        log.info("Actual Account Dto:{}", accountDto);
+        return accountDto;
+    }
+
+    /**
+     * Clean up data in file storage service
+     */
+    private static void cleanUpFileStorageService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:8083/api/v1/file-storage/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("File Storage Service db cleaned up.");
+    }
+
+    /**
+     * Clean up the data in transaction origination service
+     */
+    private static void cleanUpTransactionOriginationService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:8085/api/v1/trans-orig/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("Transaction Origination Service db cleaned up.");
+    }
+
+    /**
+     * Clean up the data in transaction storage service
+     */
+    private static void cleanUpTransactionStorageService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:8087/api/v1/transaction/storage/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("Transaction Storage Service db cleaned up.");
+    }
+
+    /**
+     * Clean up the data in data transformation service
+     */
+    private static void cleanUpDataTransformerService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:8096/api/v1/data-transform/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("Data Transformer Service db cleaned up.");
+    }
+
+    /**
+     * Delete the data from Transaction Manager service
+     */
+    private static void cleanUpTransactionManagerService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:8095/api/v1/zeus/transaction/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("Transaction Manager Service db cleaned up.");
+    }
+
+    /**
+     * Delete the data from Validation service
+     */
+    private static void cleanUpValidationService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:8089/api/v1/zeus/validation/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("Validation Service db cleaned up.");
+    }
+
+    /**
+     * Delete the data from Account Processing service
+     */
+    private static void cleanUpAccountProcessorService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:8099/api/v1/zeus/account-processor/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("Account Processor Service db cleaned up.");
+    }
+
+    /**
+     * Delete the data from Member Management service
+     */
+    private static void cleanUpMemberManagementService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:8084/api/v1/zeus/account/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("Member Management Service db cleaned up.");
     }
 }

@@ -6,8 +6,11 @@
       "testData": [
         {
           "testData": {
-            "exceptionExpected": false,
+            "testCaseId": "ZEUS-INT-TEST-01",
+            "testCaseDescription": "Add for a family of 2",
+            "folderName": "test-case-1",
             "fileName": "FFM-FL-One-Add.I834.edi",
+            "icn": "000002115",
             "transactionControlNumbers": [
               {
                 "tcn": "137567502",
@@ -45,177 +48,1238 @@
                 }
               }
             ],
-            "expectedAccountDto": {
-              "accountNumber": "ROSHBSM5J413XO5",
-              "lineOfBusinessTypeCode": "HIX",
-              "enrollmentSpans": [
-                {
-                  "enrollmentSpanCode": "3KHDSOHPNDYMPV9",
-                  "stateTypeCode": "FL",
-                  "marketplaceTypeCode": "FFM",
-                  "businessUnitTypeCode": "FL_BU",
-                  "startDate": "2020-03-01",
-                  "endDate": "2020-12-31",
-                  "exchangeSubscriberId": "0008700676",
-                  "effectuationDate": "2023-12-28",
-                  "planId": "21663FL0130006",
-                  "groupPolicyId": "86947398",
-                  "productTypeCode": "HMO",
-                  "coverageTypeCode": "FAM",
-                  "delinqInd": false,
-                  "statusTypeCode": "ENROLLED",
+            "expectedOutput": {
+              "137567502": {
+                "exceptionExpected": false,
+                "expectedTransactionDto": {
                   "ztcn": "V5V57LY478R0QVS",
-                  "premiumSpans": [
+                  "zfcn": "JR06D9RCQ1V3BFU",
+                  "source": "MARKETPLACE",
+                  "transactionReceivedDate": "2020-01-27T21:05:16.000Z",
+                  "transactionDetail": {
+                    "transactionTypeCode": "ADD",
+                    "coverageTypeCode": "FAM",
+                    "planId": "52323FL0406335",
+                    "csrVariant": "01",
+                    "groupPolicyId": "86947398",
+                    "effectiveDate": "2020-03-01"
+                  },
+                  "transactionStatus": {
+                    "transactionStatusTypeCode": "PROCESSING",
+                    "processingStatusTypeCode": "SENT_TO_APS"
+                  },
+                  "transactionAttributes": [
                     {
-                      "sequence": 1,
-                      "premiumSpanCode": "KBGD18BBFOPW09S",
-                      "ztcn": "V5V57LY478R0QVS",
-                      "startDate": "2020-03-01",
-                      "endDate": "2020-12-31",
-                      "statusTypeCode": "ACTIVE",
+                      "transactionAttributeTypeCode": "SEPREASON",
+                      "transactionAttributeValue": "43"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "SRCEXCHID",
+                      "transactionAttributeValue": "FL0"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "APPID",
+                      "transactionAttributeValue": "3340286919-1"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "RATINGAREA",
+                      "transactionAttributeValue": "R-FL043"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "REQSBTTMS",
+                      "transactionAttributeValue": "20200127210516"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "AMRC",
+                      "transactionAttributeValue": "CIC"
+                    }
+                  ],
+                  "transactionRates": [
+                    {
+                      "rateTypeCode": "TOTRESAMT",
+                      "transactionRate": 0.0,
                       "csrVariant": "01",
-                      "totalPremiumAmount": 1176.55,
-                      "totalResponsibleAmount": 0.00,
-                      "aptcAmount": 1176.55,
-                      "memberPremiumSpans": [
+                      "rateStartDate": "2020-03-01"
+                    },
+                    {
+                      "rateTypeCode": "PREAMTTOT",
+                      "transactionRate": 769.00,
+                      "csrVariant": "01",
+                      "rateStartDate": "2020-03-01"
+                    },
+                    {
+                      "rateTypeCode": "APTCAMT",
+                      "transactionRate": 769.00,
+                      "csrVariant": "01",
+                      "rateStartDate": "2020-03-01"
+                    }
+                  ],
+                  "tradingPartnerDto": {
+                    "tradingPartnerId": "21663",
+                    "lineOfBusinessTypeCode": "HIX",
+                    "businessTypeCode": "FL_BU",
+                    "marketplaceTypeCode": "FFM",
+                    "stateTypeCode": "FL"
+                  },
+                  "sponsor": {
+                    "sponsorName": "Peter A Peterson",
+                    "sponsorId": "166492101",
+                    "receivedDate": "2020-01-27T21:05:16.000Z"
+                  },
+                  "broker": {
+                    "brokerName": "Horacio  Sequeira",
+                    "brokerId": "17845067",
+                    "receivedDate": "2020-01-27T21:05:16.000Z"
+                  },
+                  "payer": {
+                    "payerName": "Ambetter from Sunshine Health",
+                    "payerId": "060641618",
+                    "receivedDate": "2020-01-27T21:05:16.000Z"
+                  },
+                  "members": [
+                    {
+                      "transactionTypeCode": "ADD",
+                      "effectiveDate": "2020-03-01",
+                      "relationshipTypeCode": "HOH",
+                      "reasonTypeCode": "MBS",
+                      "firstName": "Peter",
+                      "middleName": "A",
+                      "lastName": "Peterson",
+                      "tobaccoIndicator": "NONE",
+                      "dateOfBirth": "1962-08-27",
+                      "genderTypeCode": "MALE",
+                      "memberRate": 446.00,
+                      "productCatalogRate": 446.00,
+                      "height": 0.0,
+                      "weight": 0.0,
+                      "memberPhones": [
                         {
-                          "memberCode": "0C062WPG87ID0I8",
-                          "exchangeMemberId": "0008700676",
-                          "individualPremiumAmount": 640.44
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "7864223101",
+                          "receivedDate": "2020-01-27T21:05:16.000Z"
+                        }
+                      ],
+                      "memberAddresses": [
+                        {
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "14343 SW 258th Ln",
+                          "addressLine2": "Apt 2307",
+                          "city": "Homestead",
+                          "stateTypeCode": "FL",
+                          "zipCode": "32669",
+                          "countyCode": "12001",
+                          "receivedDate": "2020-01-27T21:05:16.000Z"
+                        }
+                      ],
+                      "identifiers": [
+                        {
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "166492101",
+                          "receivedDate": "2020-01-27T21:05:16.000Z"
                         },
                         {
-                          "memberCode": "9ZWCU6EIJLZELUI",
-                          "exchangeMemberId": "0009185554",
-                          "individualPremiumAmount": 536.11
+                          "identifierTypeCode": "EXCHSUBID",
+                          "identifierValue": "0008700676",
+                          "receivedDate": "2024-01-11T07:15:03.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHMEMID",
+                          "identifierValue": "0008700676",
+                          "receivedDate": "2024-01-11T07:15:03.000Z"
+                        }
+                      ],
+                      "emails": [
+                        {
+                          "email": "ppeterpiperbogus@bogus.com",
+                          "receivedDate": "2020-01-27T21:05:16.000Z"
+                        }
+                      ],
+                      "languages": [
+                        {
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "spa",
+                          "receivedDate": "2020-01-27T21:05:16.000Z"
+                        },
+                        {
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "spa",
+                          "receivedDate": "2020-01-27T21:05:16.000Z"
+                        }
+                      ]
+                    },
+                    {
+                      "transactionTypeCode": "ADD",
+                      "effectiveDate": "2020-03-01",
+                      "relationshipTypeCode": "SPOUSE",
+                      "reasonTypeCode": "MBS",
+                      "firstName": "Rachel",
+                      "middleName": "",
+                      "lastName": "Peterson",
+                      "tobaccoIndicator": "NONE",
+                      "dateOfBirth": "1966-11-21",
+                      "genderTypeCode": "FEMALE",
+                      "memberRate": 323.00,
+                      "productCatalogRate": 323.00,
+                      "height": 0.0,
+                      "weight": 0.0,
+                      "memberAddresses": [
+                        {
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "14343 SW 258th Ln",
+                          "addressLine2": "Apt 2307",
+                          "city": "Homestead",
+                          "stateTypeCode": "FL",
+                          "zipCode": "32669",
+                          "countyCode": "12001",
+                          "receivedDate": "2020-01-27T21:05:16.000Z"
+                        }
+                      ],
+                      "identifiers": [
+                        {
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "422850102",
+                          "receivedDate": "2020-01-27T21:05:16.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHSUBID",
+                          "identifierValue": "0008700676",
+                          "receivedDate": "2024-01-11T07:15:03.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHMEMID",
+                          "identifierValue": "0009185554",
+                          "receivedDate": "2024-01-11T07:15:03.000Z"
+                        }
+                      ]
+                    }
+                  ],
+                  "transactionRules": [
+                    {
+                      "ruleId": "GLPSKJXBMPXDVUI",
+                      "ruleName": "EFFECTIVE_DATE_PRESENCE",
+                      "rulePassed": true,
+                      "transactionMemberCode": "H1FYP0T32WU5VL3",
+                      "exchangeMemberId": "0008700676"
+                    },
+                    {
+                      "ruleId": "NHS5WV07S2N3AJ9",
+                      "ruleName": "EXCH_MEM_ID",
+                      "rulePassed": true,
+                      "transactionMemberCode": "H1FYP0T32WU5VL3",
+                      "exchangeMemberId": "0008700676"
+                    },
+                    {
+                      "ruleId": "NHS5WV07S2N3AJ9",
+                      "ruleName": "EXCH_MEM_ID",
+                      "rulePassed": true,
+                      "transactionMemberCode": "ZGGX2QXG25OA3I0",
+                      "exchangeMemberId": "0009185554"
+                    },
+                    {
+                      "ruleId": "AU3IUZ2FTSAFAV7",
+                      "ruleName": "DATE_OF_BIRTH",
+                      "rulePassed": true,
+                      "transactionMemberCode": "ZGGX2QXG25OA3I0",
+                      "exchangeMemberId": "0009185554"
+                    },
+                    {
+                      "ruleId": "84WNR9KAS23XKP3",
+                      "ruleName": "GENDER",
+                      "rulePassed": true,
+                      "transactionMemberCode": "ZGGX2QXG25OA3I0",
+                      "exchangeMemberId": "0009185554"
+                    },
+                    {
+                      "ruleId": "AU3IUZ2FTSAFAV7",
+                      "ruleName": "DATE_OF_BIRTH",
+                      "rulePassed": true,
+                      "transactionMemberCode": "H1FYP0T32WU5VL3",
+                      "exchangeMemberId": "0008700676"
+                    },
+                    {
+                      "ruleId": "GLPSKJXBMPXDVUI",
+                      "ruleName": "EFFECTIVE_DATE_PRESENCE",
+                      "rulePassed": true,
+                      "transactionMemberCode": "ZGGX2QXG25OA3I0",
+                      "exchangeMemberId": "0009185554"
+                    },
+                    {
+                      "ruleId": "84WNR9KAS23XKP3",
+                      "ruleName": "GENDER",
+                      "rulePassed": true,
+                      "transactionMemberCode": "H1FYP0T32WU5VL3",
+                      "exchangeMemberId": "0008700676"
+                    },
+                    {
+                      "ruleId": "HVRI6GGMVXAT2SV",
+                      "ruleName": "SUBSCRIBER",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "J1BW1EI6UJGNQMY",
+                      "ruleName": "EXCH_SUB_ID",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "OLG1QV5NKWHFYLG",
+                      "ruleName": "PREMIUM_AMT_TOTAL",
+                      "rulePassed": true
+                    }
+                  ]
+                },
+                "expectedAccountDto": {
+                  "accountNumber": "ROSHBSM5J413XO5",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "ztcn": "V5V57LY478R0QVS",
+                  "source": "MARKETPLACE",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "3KHDSOHPNDYMPV9",
+                      "stateTypeCode": "FL",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "FL_BU",
+                      "startDate": "2020-03-01",
+                      "endDate": "2020-12-31",
+                      "exchangeSubscriberId": "0008700676",
+                      "effectuationDate": "2020-01-27",
+                      "planId": "52323FL0406335",
+                      "groupPolicyId": "86947398",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "ENROLLED",
+                      "ztcn": "V5V57LY478R0QVS",
+                      "source": "MARKETPLACE",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "KBGD18BBFOPW09S",
+                          "ztcn": "V5V57LY478R0QVS",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-03-01",
+                          "endDate": "2020-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 769.00,
+                          "totalResponsibleAmount": 0.00,
+                          "aptcAmount": 769.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "9ZWCU6EIJLZELUI",
+                              "exchangeMemberId": "0009185554",
+                              "individualPremiumAmount": 323.00
+                            },
+                            {
+                              "memberCode": "0C062WPG87ID0I8",
+                              "exchangeMemberId": "0008700676",
+                              "individualPremiumAmount": 446.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "members": [
+                    {
+                      "memberCode": "9ZWCU6EIJLZELUI",
+                      "firstName": "Rachel",
+                      "middleName": "",
+                      "lastName": "Peterson",
+                      "relationshipTypeCode": "SPOUSE",
+                      "dateOfBirth": "1966-11-21",
+                      "genderTypeCode": "FEMALE",
+                      "ztcn": "V5V57LY478R0QVS",
+                      "source": "MARKETPLACE",
+                      "memberAddresses": [
+                        {
+                          "memberAddressCode": "D1MYVU6N47L2PUM",
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "14343 SW 258th Ln",
+                          "addressLine2": "Apt 2307",
+                          "city": "Homestead",
+                          "stateTypeCode": "FL",
+                          "zipCode": "32669",
+                          "ztcn": "V5V57LY478R0QVS",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-01-27"
+                        }
+                      ],
+                      "memberIdentifiers": [
+                        {
+                          "memberIdentifierCode": "278GBEVD623KHFP",
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "422850102",
+                          "isActive": true,
+                          "ztcn": "V5V57LY478R0QVS",
+                          "source": "MARKETPLACE",
+                          "active": true
+                        }
+                      ]
+                    },
+                    {
+                      "memberCode": "0C062WPG87ID0I8",
+                      "firstName": "Peter",
+                      "middleName": "A",
+                      "lastName": "Peterson",
+                      "relationshipTypeCode": "HOH",
+                      "dateOfBirth": "1962-08-27",
+                      "genderTypeCode": "MALE",
+                      "ztcn": "V5V57LY478R0QVS",
+                      "source": "MARKETPLACE",
+                      "memberAddresses": [
+                        {
+                          "memberAddressCode": "X2MGFPFFYUI0VM3",
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "14343 SW 258th Ln",
+                          "addressLine2": "Apt 2307",
+                          "city": "Homestead",
+                          "stateTypeCode": "FL",
+                          "zipCode": "32669",
+                          "ztcn": "V5V57LY478R0QVS",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-01-27"
+                        }
+                      ],
+                      "memberIdentifiers": [
+                        {
+                          "memberIdentifierCode": "PUKD4OBIO9EOPNG",
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "166492101",
+                          "isActive": true,
+                          "ztcn": "V5V57LY478R0QVS",
+                          "source": "MARKETPLACE",
+                          "active": true
+                        }
+                      ],
+                      "memberLanguages": [
+                        {
+                          "memberLanguageCode": "9J4I5XIRH8DYMX5",
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "spa",
+                          "ztcn": "V5V57LY478R0QVS",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-01-27"
+                        },
+                        {
+                          "memberLanguageCode": "LJTCZE8CNOBV793",
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "spa",
+                          "ztcn": "V5V57LY478R0QVS",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-01-27"
+                        }
+                      ],
+                      "memberPhones": [
+                        {
+                          "memberPhoneCode": "U0RPAU7BJ0UDNDN",
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "7864223101",
+                          "ztcn": "V5V57LY478R0QVS",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-01-27"
+                        }
+                      ],
+                      "memberEmails": [
+                        {
+                          "memberEmailCode": "J66P5XPSWUWZ1G6",
+                          "emailTypeCode": "PERSONAL",
+                          "email": "ppeterpiperbogus@bogus.com",
+                          "source": "MARKETPLACE",
+                          "isPrimary": true,
+                          "ztcn": "V5V57LY478R0QVS",
+                          "startDate": "2020-01-27",
+                          "primary": true
+                        }
+                      ]
+                    }
+                  ],
+                  "brokers": [
+                    {
+                      "brokerCode": "CLXE86KHBEQ4WC9",
+                      "brokerName": "Horacio  Sequeira",
+                      "brokerId": "17845067",
+                      "ztcn": "V5V57LY478R0QVS",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-01-27"
+                    }
+                  ],
+                  "sponsors": [
+                    {
+                      "sponsorCode": "C1DKS9J8A2GKSSQ",
+                      "sponsorId": "166492101",
+                      "sponsorName": "Peter A Peterson",
+                      "ztcn": "V5V57LY478R0QVS",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-01-27"
+                    }
+                  ],
+                  "payers": [
+                    {
+                      "payerCode": "VRLTD3HYPT5DXFZ",
+                      "payerName": "Ambetter from Sunshine Health",
+                      "payerId": "060641618",
+                      "ztcn": "V5V57LY478R0QVS",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-01-27"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "testData": {
+            "testCaseId": "ZEUS-INT-TEST-02",
+            "testCaseDescription": "Add for only primary subscriber",
+            "folderName": "test-case-2",
+            "fileName": "mccall-family.edi",
+            "icn": "000001501",
+            "transactionControlNumbers": [
+              {
+                "tcn": "100000001",
+                "ztcn": "GQ1U3WRHASIRHX1",
+                "accountEntityCodes": {
+                  "entityCodes": {
+                    "accountNumber": ["ZMNZS3VLM8PUP14"],
+                    "enrollmentSpanCode": ["LRD0E0819CNLZVN"],
+                    "premiumSpanCode": ["SN8O8QR7JDXLH7B"],
+                    "brokerCode": ["WA9LYKJ4JUOXAG7"],
+                    "sponsorCode": ["LNX6CQAR93B66D6"],
+                    "payerCode": ["OYNC7GWTZJGMTDY"]
+                  },
+                  "memberEntityCodes": [
+                    {
+                      "exchangeMemberId": "40782481",
+                      "entityCodes": {
+                        "memberCode": ["8AJEN5DU8T44Y2V"],
+                        "memberAddressCode": ["NMXFUNSH4HT1KA3"],
+                        "memberPhoneCode": ["4EW62E7PQJQIRP0"],
+                        "memberIdentifierCode": ["6IRWR3Z3Z070NNJ"],
+                        "memberEmailCode": ["YCT91ZEDVH1F1L2"],
+                        "memberLanguageCode": ["9HJ700FMDZK32YW","IIZQ0CLZDQ0E5NT"]
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "expectedOutput": {
+              "100000001": {
+                "exceptionExpected": false,
+                "expectedTransactionDto": {
+                  "ztcn": "GQ1U3WRHASIRHX1",
+                  "source": "MARKETPLACE",
+                  "transactionReceivedDate": "2020-12-15T21:05:16.000Z",
+                  "transactionDetail": {
+                    "transactionTypeCode": "ADD",
+                    "coverageTypeCode": "FAM",
+                    "planId": "52323FL0406336",
+                    "csrVariant": "09",
+                    "groupPolicyId": "31430505",
+                    "effectiveDate": "2021-01-01"
+                  },
+                  "transactionStatus": {
+                    "transactionStatusTypeCode": "PROCESSING",
+                    "processingStatusTypeCode": "SENT_TO_APS"
+                  },
+                  "transactionAttributes": [
+                    {
+                      "transactionAttributeTypeCode": "SEPREASON",
+                      "transactionAttributeValue": "43"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "SRCEXCHID",
+                      "transactionAttributeValue": "FL0"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "APPID",
+                      "transactionAttributeValue": "8181542723-1"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "RATINGAREA",
+                      "transactionAttributeValue": "R-FL043"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "REQSBTTMS",
+                      "transactionAttributeValue": "20201215210516"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "AMRC",
+                      "transactionAttributeValue": "CIC"
+                    }
+                  ],
+                  "transactionRates": [
+                    {
+                      "rateTypeCode": "TOTRESAMT",
+                      "transactionRate": 50.0,
+                      "csrVariant": "09",
+                      "rateStartDate": "2021-01-01"
+                    },
+                    {
+                      "rateTypeCode": "PREAMTTOT",
+                      "transactionRate": 313.00,
+                      "csrVariant": "09",
+                      "rateStartDate": "2021-01-01"
+                    },
+                    {
+                      "rateTypeCode": "APTCAMT",
+                      "transactionRate": 263.00,
+                      "csrVariant": "09",
+                      "rateStartDate": "2021-01-01"
+                    }
+                  ],
+                  "tradingPartnerDto": {
+                    "tradingPartnerId": "21663",
+                    "lineOfBusinessTypeCode": "HIX",
+                    "businessTypeCode": "FL_BU",
+                    "marketplaceTypeCode": "FFM",
+                    "stateTypeCode": "FL"
+                  },
+                  "sponsor": {
+                    "sponsorName": "Matt Mccall",
+                    "sponsorId": "222119716",
+                    "receivedDate": "2020-12-15T21:05:16.000Z"
+                  },
+                  "broker": {
+                    "brokerName": "Chris Tapia",
+                    "brokerId": "23267921",
+                    "receivedDate": "2020-12-15T21:05:16.000Z"
+                  },
+                  "payer": {
+                    "payerName": "Ambetter from Sunshine Health",
+                    "payerId": "060641618",
+                    "receivedDate": "2020-12-15T21:05:16.000Z"
+                  },
+                  "members": [
+                    {
+                      "transactionTypeCode": "ADD",
+                      "effectiveDate": "2021-01-01",
+                      "relationshipTypeCode": "HOH",
+                      "reasonTypeCode": "MBS",
+                      "firstName": "Matt",
+                      "middleName": "Y",
+                      "lastName": "Mccall",
+                      "tobaccoIndicator": "NONE",
+                      "dateOfBirth": "1985-03-03",
+                      "genderTypeCode": "MALE",
+                      "memberRate": 313.00,
+                      "productCatalogRate": 313.00,
+                      "height": 0.0,
+                      "weight": 0.0,
+                      "memberPhones": [
+                        {
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "603 704-8993",
+                          "receivedDate": "2020-12-15T21:05:16.000Z"
+                        }
+                      ],
+                      "memberAddresses": [
+                        {
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "69 W. Selby St",
+                          "addressLine2": "Apt 2307",
+                          "city": "Odessa",
+                          "stateTypeCode": "FL",
+                          "zipCode": "33008",
+                          "countyCode": "12003",
+                          "receivedDate": "2020-12-15T21:05:16.000Z"
+                        }
+                      ],
+                      "identifiers": [
+                        {
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "222119716",
+                          "receivedDate": "2020-12-15T21:05:16.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHSUBID",
+                          "identifierValue": "40782481",
+                          "receivedDate": "2020-12-15T07:15:03.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHMEMID",
+                          "identifierValue": "40782481",
+                          "receivedDate": "2020-12-15T07:15:03.000Z"
+                        }
+                      ],
+                      "emails": [
+                        {
+                          "email": "matt.mccall@gmail.com",
+                          "receivedDate": "2020-12-15T21:05:16.000Z"
+                        }
+                      ],
+                      "languages": [
+                        {
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "eng",
+                          "receivedDate": "2020-12-15T21:05:16.000Z"
+                        },
+                        {
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "eng",
+                          "receivedDate": "2020-12-15T21:05:16.000Z"
+                        }
+                      ]
+                    }
+                  ],
+                  "transactionRules": [
+                    {
+                      "ruleId": "AU3IUZ2FTSAFAV7",
+                      "ruleName": "DATE_OF_BIRTH",
+                      "rulePassed": true,
+                      "transactionMemberCode": "0MK2RHZ46D4Q3S6",
+                      "exchangeMemberId": "40782481"
+                    },
+                    {
+                      "ruleId": "NHS5WV07S2N3AJ9",
+                      "ruleName": "EXCH_MEM_ID",
+                      "rulePassed": true,
+                      "transactionMemberCode": "0MK2RHZ46D4Q3S6",
+                      "exchangeMemberId": "40782481"
+                    },
+                    {
+                      "ruleId": "GLPSKJXBMPXDVUI",
+                      "ruleName": "EFFECTIVE_DATE_PRESENCE",
+                      "rulePassed": true,
+                      "transactionMemberCode": "0MK2RHZ46D4Q3S6",
+                      "exchangeMemberId": "40782481"
+                    },
+                    {
+                      "ruleId": "84WNR9KAS23XKP3",
+                      "ruleName": "GENDER",
+                      "rulePassed": true,
+                      "transactionMemberCode": "0MK2RHZ46D4Q3S6",
+                      "exchangeMemberId": "40782481"
+                    },
+                    {
+                      "ruleId": "HVRI6GGMVXAT2SV",
+                      "ruleName": "SUBSCRIBER",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "J1BW1EI6UJGNQMY",
+                      "ruleName": "EXCH_SUB_ID",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "OLG1QV5NKWHFYLG",
+                      "ruleName": "PREMIUM_AMT_TOTAL",
+                      "rulePassed": true
+                    }
+                  ]
+                },
+                "expectedAccountDto": {
+                  "accountNumber": "ZMNZS3VLM8PUP14",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "ztcn": "GQ1U3WRHASIRHX1",
+                  "source": "MARKETPLACE",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                      "stateTypeCode": "FL",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "FL_BU",
+                      "startDate": "2021-01-01",
+                      "endDate": "2021-12-31",
+                      "exchangeSubscriberId": "40782481",
+                      "planId": "52323FL0406336",
+                      "groupPolicyId": "31430505",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "PRE_MEMBER",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "09",
+                          "totalPremiumAmount": 313.00,
+                          "totalResponsibleAmount": 50.00,
+                          "aptcAmount": 263.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "8AJEN5DU8T44Y2V",
+                              "exchangeMemberId": "40782481",
+                              "individualPremiumAmount": 313.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "members": [
+                    {
+                      "memberCode": "8AJEN5DU8T44Y2V",
+                      "firstName": "Matt",
+                      "middleName": "Y",
+                      "lastName": "Mccall",
+                      "relationshipTypeCode": "HOH",
+                      "dateOfBirth": "1985-03-03",
+                      "genderTypeCode": "MALE",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "memberAddresses": [
+                        {
+                          "memberAddressCode": "NMXFUNSH4HT1KA3",
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "69 W. Selby St",
+                          "addressLine2": "Apt 2307",
+                          "city": "Odessa",
+                          "stateTypeCode": "FL",
+                          "zipCode": "33008",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "memberIdentifiers": [
+                        {
+                          "memberIdentifierCode": "6IRWR3Z3Z070NNJ",
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "222119716",
+                          "isActive": true,
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "active": true
+                        }
+                      ],
+                      "memberLanguages": [
+                        {
+                          "memberLanguageCode": "9HJ700FMDZK32YW",
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "eng",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        },
+                        {
+                          "memberLanguageCode": "IIZQ0CLZDQ0E5NT",
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "eng",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "memberPhones": [
+                        {
+                          "memberPhoneCode": "4EW62E7PQJQIRP0",
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "603 704-8993",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "memberEmails": [
+                        {
+                          "memberEmailCode": "YCT91ZEDVH1F1L2",
+                          "emailTypeCode": "PERSONAL",
+                          "email": "matt.mccall@gmail.com",
+                          "source": "MARKETPLACE",
+                          "isPrimary": true,
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "startDate": "2020-12-15",
+                          "primary": true
+                        }
+                      ]
+                    }
+                  ],
+                  "brokers": [
+                    {
+                      "brokerCode": "WA9LYKJ4JUOXAG7",
+                      "brokerName": "Chris Tapia",
+                      "brokerId": "23267921",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-12-15"
+                    }
+                  ],
+                  "sponsors": [
+                    {
+                      "sponsorCode": "LNX6CQAR93B66D6",
+                      "sponsorId": "222119716",
+                      "sponsorName": "Matt Mccall",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-12-15"
+                    }
+                  ],
+                  "payers": [
+                    {
+                      "payerCode": "OYNC7GWTZJGMTDY",
+                      "payerName": "Ambetter from Sunshine Health",
+                      "payerId": "060641618",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-12-15"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "testData": {
+            "testCaseId": "ZEUS-INT-TEST-03",
+            "testCaseDescription": "Change transaction for the Mccall Family",
+            "folderName": "test-case-2",
+            "fileName": "mccall-nfc.edi",
+            "icn": "000001502",
+            "transactionControlNumbers": [
+              {
+                "tcn": "100000002",
+                "ztcn": "MXAH2A6INLF5PW4"
+              }
+            ],
+            "expectedOutput": {
+              "100000002": {
+                "exceptionExpected": false,
+                "expectedTransactionDto": {
+                  "ztcn": "MXAH2A6INLF5PW4",
+                  "source": "MARKETPLACE",
+                  "transactionReceivedDate": "2020-12-17T21:05:16.000Z",
+                  "transactionDetail": {
+                    "transactionTypeCode": "CHANGE",
+                    "coverageTypeCode": "FAM",
+                    "planId": "52323FL0406336",
+                    "csrVariant": "09",
+                    "groupPolicyId": "31430505",
+                    "effectiveDate": "2021-01-01"
+                  },
+                  "transactionStatus": {
+                    "transactionStatusTypeCode": "PROCESSING",
+                    "processingStatusTypeCode": "SENT_TO_APS"
+                  },
+                  "transactionAttributes": [
+                    {
+                      "transactionAttributeTypeCode": "SEPREASON",
+                      "transactionAttributeValue": "43"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "SRCEXCHID",
+                      "transactionAttributeValue": "FL0"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "APPID",
+                      "transactionAttributeValue": "8181542723-1"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "REQSBTTMS",
+                      "transactionAttributeValue": "20201217210516"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "AMRC",
+                      "transactionAttributeValue": "CIC"
+                    }
+                  ],
+                  "tradingPartnerDto": {
+                    "tradingPartnerId": "21663",
+                    "lineOfBusinessTypeCode": "HIX",
+                    "businessTypeCode": "FL_BU",
+                    "marketplaceTypeCode": "FFM",
+                    "stateTypeCode": "FL"
+                  },
+                  "sponsor": {
+                    "sponsorName": "Matt Mccall",
+                    "sponsorId": "222119716",
+                    "receivedDate": "2020-12-17T21:05:16.000Z"
+                  },
+                  "broker": {
+                    "brokerName": "Chris Tapia",
+                    "brokerId": "23267921",
+                    "receivedDate": "2020-12-17T21:05:16.000Z"
+                  },
+                  "payer": {
+                    "payerName": "Ambetter from Sunshine Health",
+                    "payerId": "060641618",
+                    "receivedDate": "2020-12-17T21:05:16.000Z"
+                  },
+                  "members": [
+                    {
+                      "transactionTypeCode": "CHANGE",
+                      "effectiveDate": "2021-01-01",
+                      "relationshipTypeCode": "HOH",
+                      "reasonTypeCode": "MBS",
+                      "firstName": "Matt",
+                      "middleName": "Test",
+                      "lastName": "Mccall",
+                      "tobaccoIndicator": "NONE",
+                      "dateOfBirth": "1985-03-03",
+                      "genderTypeCode": "MALE",
+                      "memberRate": 313.00,
+                      "productCatalogRate": 313.00,
+                      "height": 0.0,
+                      "weight": 0.0,
+                      "memberPhones": [
+                        {
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "603 704-8993",
+                          "receivedDate": "2020-12-17T21:05:16.000Z"
+                        }
+                      ],
+                      "memberAddresses": [
+                        {
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "69 W. Selby St",
+                          "addressLine2": "Apt 2307",
+                          "city": "Odessa",
+                          "stateTypeCode": "FL",
+                          "zipCode": "33008",
+                          "countyCode": "12003",
+                          "receivedDate": "2020-12-17T21:05:16.000Z"
+                        }
+                      ],
+                      "identifiers": [
+                        {
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "222119716",
+                          "receivedDate": "2020-12-17T21:05:16.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHSUBID",
+                          "identifierValue": "40782481",
+                          "receivedDate": "2020-12-17T21:15:03.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHMEMID",
+                          "identifierValue": "40782481",
+                          "receivedDate": "2020-12-17T21:15:03.000Z"
+                        }
+                      ],
+                      "emails": [
+                        {
+                          "email": "matt.mccall@gmail.com",
+                          "receivedDate": "2020-12-17T21:05:16.000Z"
+                        }
+                      ],
+                      "languages": [
+                        {
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "eng",
+                          "receivedDate": "2020-12-17T21:05:16.000Z"
+                        },
+                        {
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "eng",
+                          "receivedDate": "2020-12-17T21:05:16.000Z"
+                        }
+                      ]
+                    }
+                  ],
+                  "transactionRules": [
+                    {
+                      "ruleId": "84WNR9KAS23XKP3",
+                      "ruleName": "GENDER",
+                      "rulePassed": true,
+                      "transactionMemberCode": "GG32UEDEJE3OQQQ",
+                      "exchangeMemberId": "40782481"
+                    },
+                    {
+                      "ruleId": "AU3IUZ2FTSAFAV7",
+                      "ruleName": "DATE_OF_BIRTH",
+                      "rulePassed": true,
+                      "transactionMemberCode": "GG32UEDEJE3OQQQ",
+                      "exchangeMemberId": "40782481"
+                    },
+                    {
+                      "ruleId": "GLPSKJXBMPXDVUI",
+                      "ruleName": "EFFECTIVE_DATE_PRESENCE",
+                      "rulePassed": true,
+                      "transactionMemberCode": "GG32UEDEJE3OQQQ",
+                      "exchangeMemberId": "40782481"
+                    },
+                    {
+                      "ruleId": "NHS5WV07S2N3AJ9",
+                      "ruleName": "EXCH_MEM_ID",
+                      "rulePassed": true,
+                      "transactionMemberCode": "GG32UEDEJE3OQQQ",
+                      "exchangeMemberId": "40782481"
+                    },
+                    {
+                      "ruleId": "J1BW1EI6UJGNQMY",
+                      "ruleName": "EXCH_SUB_ID",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "OLG1QV5NKWHFYLG",
+                      "ruleName": "PREMIUM_AMT_TOTAL",
+                      "rulePassed": true,
+                      "transactionRuleMessages": [
+                        {
+                          "messageCode": "1400011",
+                          "messageTypeCode": "INFO",
+                          "messageDesc": "Premium amount total not present in the transaction"
                         }
                       ]
                     }
                   ]
-                }
-              ],
-              "members": [
-                {
-                  "memberCode": "9ZWCU6EIJLZELUI",
-                  "firstName": "Rachel",
-                  "middleName": "",
-                  "lastName": "Peterson",
-                  "relationshipTypeCode": "SPOUSE",
-                  "dateOfBirth": "1966-11-21",
-                  "genderTypeCode": "FEMALE",
-                  "height": 0.0,
-                  "weight": 0.0,
-                  "memberAddresses": [
-                    {
-                      "memberAddressCode": "D1MYVU6N47L2PUM",
-                      "addressTypeCode": "RESIDENCE",
-                      "addressLine1": "14343 SW 258th Ln",
-                      "addressLine2": "Apt 2307",
-                      "city": "Homestead",
-                      "stateTypeCode": "FL",
-                      "zipCode": "33032",
-                      "startDate": "2023-12-28"
-                    }
-                  ],
-                  "memberIdentifiers": [
-                    {
-                      "memberIdentifierCode": "278GBEVD623KHFP",
-                      "identifierTypeCode": "SSN",
-                      "identifierValue": "422850102",
-                      "isActive": true,
-                      "active": true
-                    }
-                  ]
                 },
-                {
-                  "memberCode": "0C062WPG87ID0I8",
-                  "firstName": "Peter",
-                  "middleName": "A",
-                  "lastName": "Peterson",
-                  "relationshipTypeCode": "HOH",
-                  "dateOfBirth": "1962-08-27",
-                  "genderTypeCode": "MALE",
-                  "height": 0.0,
-                  "weight": 0.0,
-                  "memberAddresses": [
+                "expectedAccountDto": {
+                  "accountNumber": "ZMNZS3VLM8PUP14",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "ztcn": "GQ1U3WRHASIRHX1",
+                  "source": "MARKETPLACE",
+                  "enrollmentSpans": [
                     {
-                      "memberAddressCode": "X2MGFPFFYUI0VM3",
-                      "addressTypeCode": "RESIDENCE",
-                      "addressLine1": "14343 SW 258th Ln",
-                      "addressLine2": "Apt 2307",
-                      "city": "Homestead",
+                      "enrollmentSpanCode": "LRD0E0819CNLZVN",
                       "stateTypeCode": "FL",
-                      "zipCode": "33032",
-                      "startDate": "2023-12-28"
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "FL_BU",
+                      "startDate": "2021-01-01",
+                      "endDate": "2021-12-31",
+                      "exchangeSubscriberId": "40782481",
+                      "planId": "52323FL0406336",
+                      "groupPolicyId": "31430505",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "PRE_MEMBER",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "09",
+                          "totalPremiumAmount": 313.00,
+                          "totalResponsibleAmount": 50.00,
+                          "aptcAmount": 263.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "8AJEN5DU8T44Y2V",
+                              "exchangeMemberId": "40782481",
+                              "individualPremiumAmount": 313.00
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ],
-                  "memberIdentifiers": [
+                  "members": [
                     {
-                      "memberIdentifierCode": "PUKD4OBIO9EOPNG",
-                      "identifierTypeCode": "SSN",
-                      "identifierValue": "166492101",
-                      "isActive": true,
-                      "active": true
+                      "memberCode": "8AJEN5DU8T44Y2V",
+                      "firstName": "Matt",
+                      "middleName": "Test",
+                      "lastName": "Mccall",
+                      "relationshipTypeCode": "HOH",
+                      "dateOfBirth": "1985-03-03",
+                      "genderTypeCode": "MALE",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "memberAddresses": [
+                        {
+                          "memberAddressCode": "NMXFUNSH4HT1KA3",
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "69 W. Selby St",
+                          "addressLine2": "Apt 2307",
+                          "city": "Odessa",
+                          "stateTypeCode": "FL",
+                          "zipCode": "33008",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "memberIdentifiers": [
+                        {
+                          "memberIdentifierCode": "6IRWR3Z3Z070NNJ",
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "222119716",
+                          "isActive": true,
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "active": true
+                        }
+                      ],
+                      "memberLanguages": [
+                        {
+                          "memberLanguageCode": "9HJ700FMDZK32YW",
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "eng",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        },
+                        {
+                          "memberLanguageCode": "IIZQ0CLZDQ0E5NT",
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "eng",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "memberPhones": [
+                        {
+                          "memberPhoneCode": "4EW62E7PQJQIRP0",
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "603 704-8993",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "memberEmails": [
+                        {
+                          "memberEmailCode": "YCT91ZEDVH1F1L2",
+                          "emailTypeCode": "PERSONAL",
+                          "email": "matt.mccall@gmail.com",
+                          "source": "MARKETPLACE",
+                          "isPrimary": true,
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "startDate": "2020-12-15",
+                          "primary": true
+                        }
+                      ]
                     }
                   ],
-                  "memberLanguages": [
+                  "brokers": [
                     {
-                      "memberLanguageCode": "9J4I5XIRH8DYMX5",
-                      "languageTypeCode": "SPEAKING",
-                      "languageCode": "spa",
-                      "startDate": "2023-12-28"
-                    },
-                    {
-                      "memberLanguageCode": "LJTCZE8CNOBV793",
-                      "languageTypeCode": "WRITING",
-                      "languageCode": "spa",
-                      "startDate": "2023-12-28"
+                      "brokerCode": "WA9LYKJ4JUOXAG7",
+                      "brokerName": "Chris Tapia",
+                      "brokerId": "23267921",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-12-15"
                     }
                   ],
-                  "memberPhones": [
+                  "sponsors": [
                     {
-                      "memberPhoneCode": "U0RPAU7BJ0UDNDN",
-                      "phoneTypeCode": "HOME",
-                      "phoneNumber": "7864223101",
-                      "startDate": "2023-12-28"
+                      "sponsorCode": "LNX6CQAR93B66D6",
+                      "sponsorId": "222119716",
+                      "sponsorName": "Matt Mccall",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-12-15"
                     }
                   ],
-                  "memberEmails": [
+                  "payers": [
                     {
-                      "memberEmailCode": "J66P5XPSWUWZ1G6",
-                      "emailTypeCode": "PERSONAL",
-                      "email": "ppeterpiperbogus@bogus.com",
-                      "isPrimary": true,
-                      "startDate": "2023-12-28",
-                      "primary": true
+                      "payerCode": "OYNC7GWTZJGMTDY",
+                      "payerName": "Ambetter from Sunshine Health",
+                      "payerId": "060641618",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "startDate": "2020-12-15"
                     }
                   ]
                 }
-              ],
-              "brokers": [
-                {
-                  "brokerCode": "CLXE86KHBEQ4WC9",
-                  "brokerName": "Horacio  Sequeira",
-                  "brokerId": "17845067",
-                  "startDate": "2023-12-28"
-                }
-              ],
-              "sponsors": [
-                {
-
-                  "sponsorCode": "C1DKS9J8A2GKSSQ",
-                  "sponsorId": "166492101",
-                  "sponsorName": "Peter A Peterson",
-                  "startDate": "2023-12-28"
-                }
-              ],
-              "payers": [
-                {
-                  "payerCode": "VRLTD3HYPT5DXFZ",
-                  "payerName": "Ambetter from Sunshine Health",
-                  "payerId": "060641618",
-                  "startDate": "2023-12-28"
-                }
-              ]
+              }
             }
           }
         }
