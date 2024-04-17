@@ -193,46 +193,58 @@ public class EDITransactionProcessingIntTest {
      * This method tests the processing of the transaction
      * @param repetitionInfo the repetition identifies the test iteration
      */
-    @RepeatedTest(3)
+    @RepeatedTest(8) // total - 58
     @Order(1)
     void testProcessTransaction(RepetitionInfo repetitionInfo) throws IOException, InterruptedException {
         if(Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
-
-            // Retrieve the accounting processing request for the repetition
-            EDITransactionProcessingRequest processingRequest = requests.get(repetitionInfo.getCurrentRepetition() - 1);
-            log.info("Processing Request:{}", processingRequest);
-
-            String ediFile = ediFileLocation + processingRequest.getFolderName() + "/" + processingRequest.getFileName();
-            log.info("Edi File to be tested:{}", ediFile);
-            List<ZeusTransactionControlNumber> testTransactionControlNumbers = processingRequest.getTransactionControlNumbers();
-//            log.info("Transaction Control Numbers:{}", testTransactionControlNumbers);
-            Resource [] resources = applicationContext.getResources("file:"+ediFile);
-            for(Resource resource: resources){
-                String fileName = resource.getFilename();
-                log.info("File Name to be tested:{}", fileName);
-                fileService.processFile(resource, testTransactionControlNumbers);
-                TimeUnit.SECONDS.sleep(5);
+            if(repetitionInfo.getCurrentRepetition() >= 7){
+                testTransactions(repetitionInfo);
             }
-
-            Map<String, EDIExpectedOutput> expectedOutputMap = processingRequest.getExpectedOutput();
-            testTransactionControlNumbers.forEach(zeusTransactionControlNumber -> {
-                String transactionControlNumber = zeusTransactionControlNumber.getTcn();
-                EDIExpectedOutput ediExpectedOutput = expectedOutputMap.get(transactionControlNumber);
-                log.info("Expected outputs for transaction control number:{}", transactionControlNumber);
-                TransactionDto expectedTransaction = ediExpectedOutput.getExpectedTransactionDto();
-                TransactionDto actualTransaction = getTransactionByZtcn(zeusTransactionControlNumber.getZtcn());
-                transactionValidator.assertTransaction(expectedTransaction, actualTransaction);
-                AccountDto expectedAccount = ediExpectedOutput.getExpectedAccountDto();
-                AccountDto actualAccount = getAccountByAccountNumber(ediExpectedOutput.getExpectedAccountDto().getAccountNumber());
-                try {
-                    accountValidator.assertAccount(expectedAccount, actualAccount);
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+//            testTransactions(repetitionInfo);
         }else{
             log.info("Environment is not integration testing, hence not running the test");
         }
+    }
+
+    /**
+     * Test the transactions
+     * @param repetitionInfo
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    private void testTransactions(RepetitionInfo repetitionInfo) throws IOException, InterruptedException {
+        // Retrieve the accounting processing request for the repetition
+        EDITransactionProcessingRequest processingRequest = requests.get(repetitionInfo.getCurrentRepetition() - 1);
+        log.info("Processing Request:{}", processingRequest);
+
+        String ediFile = ediFileLocation + processingRequest.getFolderName() + "/" + processingRequest.getFileName();
+        log.info("Edi File to be tested:{}", ediFile);
+        List<ZeusTransactionControlNumber> testTransactionControlNumbers = processingRequest.getTransactionControlNumbers();
+//            log.info("Transaction Control Numbers:{}", testTransactionControlNumbers);
+        Resource [] resources = applicationContext.getResources("file:"+ediFile);
+        for(Resource resource: resources){
+            String fileName = resource.getFilename();
+            log.info("File Name to be tested:{}", fileName);
+            fileService.processFile(resource, testTransactionControlNumbers);
+            TimeUnit.SECONDS.sleep(7);
+        }
+
+        Map<String, EDIExpectedOutput> expectedOutputMap = processingRequest.getExpectedOutput();
+        testTransactionControlNumbers.forEach(zeusTransactionControlNumber -> {
+            String transactionControlNumber = zeusTransactionControlNumber.getTcn();
+            EDIExpectedOutput ediExpectedOutput = expectedOutputMap.get(transactionControlNumber);
+            log.info("Expected outputs for transaction control number:{}", transactionControlNumber);
+            TransactionDto expectedTransaction = ediExpectedOutput.getExpectedTransactionDto();
+            TransactionDto actualTransaction = getTransactionByZtcn(zeusTransactionControlNumber.getZtcn());
+            transactionValidator.assertTransaction(expectedTransaction, actualTransaction);
+            AccountDto expectedAccount = ediExpectedOutput.getExpectedAccountDto();
+            AccountDto actualAccount = getAccountByAccountNumber(ediExpectedOutput.getExpectedAccountDto().getAccountNumber());
+            try {
+                accountValidator.assertAccount(expectedAccount, actualAccount);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     /**
