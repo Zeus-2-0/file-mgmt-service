@@ -1,6 +1,7 @@
 package com.brihaspathee.zeus.web.model;
 
 import com.brihaspathee.zeus.dto.account.AccountDto;
+import com.brihaspathee.zeus.dto.account.PremiumPaymentDto;
 import com.brihaspathee.zeus.test.ZeusTransactionControlNumber;
 import lombok.*;
 

@@ -4,6 +4,9 @@ import com.brihaspathee.zeus.dto.account.AccountDto;
 import com.brihaspathee.zeus.dto.transaction.TransactionDto;
 import lombok.*;
 
+import java.time.LocalDate;
+import java.util.Map;
+
 /**
  * Created in Intellij IDEA
  * User: Balaji Varadharajan
@@ -44,4 +47,17 @@ public class EDIExpectedOutput {
      * The account dto object that is expected from processing the transaction
      */
     private AccountDto expectedAccountDto;
+
+    /**
+     * The account dto object that is expected from premium billing
+     */
+    private AccountDto expectedPBAccountDto;
+
+    /**
+     * The way the accounts are expected to be once the premium payments are made
+     * The key is the date when the payment was made
+     * The value is the Expected Account object which contains
+     * the MMS and Premium billing accounts post payment
+     */
+    private Map<LocalDate, ExpectedAccount> expectedAccounts;
 }

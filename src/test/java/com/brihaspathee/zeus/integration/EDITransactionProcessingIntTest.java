@@ -3,6 +3,7 @@ package com.brihaspathee.zeus.integration;
 import com.brihaspathee.zeus.constants.ZeusServiceNames;
 import com.brihaspathee.zeus.dto.account.AccountDto;
 import com.brihaspathee.zeus.dto.account.AccountList;
+import com.brihaspathee.zeus.dto.account.PremiumPaymentDto;
 import com.brihaspathee.zeus.dto.transaction.TransactionDto;
 import com.brihaspathee.zeus.service.interfaces.FileService;
 import com.brihaspathee.zeus.test.BuildTestData;
@@ -12,6 +13,7 @@ import com.brihaspathee.zeus.test.validator.AccountValidator;
 import com.brihaspathee.zeus.test.validator.TransactionValidator;
 import com.brihaspathee.zeus.web.model.EDIExpectedOutput;
 import com.brihaspathee.zeus.web.model.EDITransactionProcessingRequest;
+import com.brihaspathee.zeus.web.model.ExpectedAccount;
 import com.brihaspathee.zeus.web.response.ZeusApiResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -26,16 +28,15 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -65,6 +66,12 @@ public class EDITransactionProcessingIntTest {
      */
     @Value("${url.host.member-management-service}")
     private String mmsHost;
+
+    /**
+     * The host for the premium billing service
+     */
+    @Value("${url.host.premium-billing-service}")
+    private String pbHost;
 
     /**
      * The spring environment instance
@@ -185,6 +192,8 @@ public class EDITransactionProcessingIntTest {
             cleanUpAccountProcessorService();
             // Clean up the data in member management service
             cleanUpMemberManagementService();
+            // Clean up the data in premium billing service
+            cleanUpPremiumBillingService();
         }
 
     }
@@ -193,11 +202,11 @@ public class EDITransactionProcessingIntTest {
      * This method tests the processing of the transaction
      * @param repetitionInfo the repetition identifies the test iteration
      */
-    @RepeatedTest(8) // total - 58
+    @RepeatedTest(67) // total - 64
     @Order(1)
     void testProcessTransaction(RepetitionInfo repetitionInfo) throws IOException, InterruptedException {
         if(Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
-            if(repetitionInfo.getCurrentRepetition() >= 7){
+            if(repetitionInfo.getCurrentRepetition() >= 65){
                 testTransactions(repetitionInfo);
             }
 //            testTransactions(repetitionInfo);
@@ -226,9 +235,12 @@ public class EDITransactionProcessingIntTest {
             String fileName = resource.getFilename();
             log.info("File Name to be tested:{}", fileName);
             fileService.processFile(resource, testTransactionControlNumbers);
-            TimeUnit.SECONDS.sleep(7);
+            // Make the thread to sleep to let the transaction processing
+            // to complete before it can be validated
+            Thread.sleep(Duration.ofSeconds(30));
         }
 
+        // Validate the transaction and account once the transaction processing is completed
         Map<String, EDIExpectedOutput> expectedOutputMap = processingRequest.getExpectedOutput();
         testTransactionControlNumbers.forEach(zeusTransactionControlNumber -> {
             String transactionControlNumber = zeusTransactionControlNumber.getTcn();
@@ -239,12 +251,51 @@ public class EDITransactionProcessingIntTest {
             transactionValidator.assertTransaction(expectedTransaction, actualTransaction);
             AccountDto expectedAccount = ediExpectedOutput.getExpectedAccountDto();
             AccountDto actualAccount = getAccountByAccountNumber(ediExpectedOutput.getExpectedAccountDto().getAccountNumber());
-            try {
-                accountValidator.assertAccount(expectedAccount, actualAccount);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
+            assertAccount(expectedAccount, actualAccount);
+            AccountDto expectedPBAccount = ediExpectedOutput.getExpectedPBAccountDto();
+            AccountDto actualPBAccount = getAccountFromPB(ediExpectedOutput.getExpectedAccountDto().getAccountNumber());
+            assertAccount(expectedPBAccount, actualPBAccount);
+            // Now that the transaction processing is completed
+            // post premium payments if any present in the test case
+            // and validate the changes in the MMS and Premium Billing
+            log.info("transaction control number before posting payments:{}", zeusTransactionControlNumber);
+            postPaymentsAndAssert(zeusTransactionControlNumber, ediExpectedOutput);
         });
+    }
+
+    private void postPaymentsAndAssert(ZeusTransactionControlNumber zeusTransactionControlNumber, EDIExpectedOutput ediExpectedOutput) {
+        log.info("transaction control number:{}", zeusTransactionControlNumber);
+        List<PremiumPaymentDto> premiumPaymentDtos = zeusTransactionControlNumber.getPremiumPayments();
+        log.info("premium payments:{}", premiumPaymentDtos);
+        Map<LocalDate, ExpectedAccount> expectedAccountMap = ediExpectedOutput.getExpectedAccounts();
+        log.info("Expected Accounts Map: {}", expectedAccountMap);
+        if(premiumPaymentDtos != null){
+            premiumPaymentDtos.forEach(premiumPaymentDto -> {
+                postPremiumPayment(premiumPaymentDto);
+                try {
+                    Thread.sleep(Duration.ofSeconds(10));
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                ExpectedAccount expectedAccountPostPayment =
+                        expectedAccountMap.get(premiumPaymentDto.getPaymentDate());
+                AccountDto expectedMMSAccountPostPayment = expectedAccountPostPayment.getExpectedAccountDto();
+                AccountDto actualMMSAccountPostPayment = getAccountByAccountNumber(
+                        ediExpectedOutput.getExpectedAccountDto().getAccountNumber());
+                assertAccount(expectedMMSAccountPostPayment, actualMMSAccountPostPayment);
+                AccountDto expectedPBAccountPostPayment = expectedAccountPostPayment.getExpectedPBAccountDto();
+                AccountDto actualPBAccountPostPayment = getAccountFromPB(ediExpectedOutput.getExpectedAccountDto().getAccountNumber());
+                assertAccount(expectedPBAccountPostPayment, actualPBAccountPostPayment);
+            });
+        }
+    }
+
+    private void assertAccount(AccountDto expectedAccount, AccountDto actualAccount) {
+        try {
+            accountValidator.assertAccount(expectedAccount, actualAccount);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -294,6 +345,48 @@ public class EDITransactionProcessingIntTest {
         AccountDto accountDto = accountList.getAccountDtos().stream().findFirst().get();
         log.info("Actual Account Dto:{}", accountDto);
         return accountDto;
+    }
+
+    /**
+     * Get the account that was created in premium billing
+     * @param accountNumber
+     * @return
+     */
+    private AccountDto getAccountFromPB(String accountNumber){
+        log.info("Premium Billing Service Host:{}", pbHost);
+        String uri = pbHost+"/api/v1/zeus/premium-billing/"+accountNumber;
+        log.info("URI:{}", uri);
+        ResponseEntity<ZeusApiResponse> updatedAccountResponseEntity  =
+                testRestTemplate.getForEntity(
+                        uri,
+                        ZeusApiResponse.class);
+        // Get the response body from the response
+        ZeusApiResponse updatedAccountResponse = updatedAccountResponseEntity.getBody();
+        // get the list of accounts that matched
+        assert updatedAccountResponse != null;
+        AccountList accountList =
+                objectMapper.convertValue(updatedAccountResponse.getResponse(), AccountList.class);
+        assertNotNull(accountList);
+        assertTrue(accountList.getAccountDtos().stream().findFirst().isPresent());
+        AccountDto accountDto = accountList.getAccountDtos().stream().findFirst().get();
+        log.info("Actual Account Dto from premium billing:{}", accountDto);
+        return accountDto;
+    }
+
+    /**
+     * Post premium payments
+     * @param premiumPaymentDto
+     */
+    private void postPremiumPayment(PremiumPaymentDto premiumPaymentDto){
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<PremiumPaymentDto> httpEntity = new HttpEntity<>(premiumPaymentDto, headers);
+        log.info("Premium Billing Service Host:{}", pbHost);
+        String uri = pbHost+"/api/v1/zeus/premium-billing/payment";
+        log.info("URI:{}", uri);
+        // Call the API Endpoint to process the premium payment
+        testRestTemplate
+                .postForEntity(uri,httpEntity, ZeusApiResponse.class);
     }
 
     /**
@@ -374,5 +467,15 @@ public class EDITransactionProcessingIntTest {
         String url = "http://localhost:8084/api/v1/zeus/account/delete";
         testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
         log.info("Member Management Service db cleaned up.");
+    }
+
+    /**
+     * Delete the data from Premium Billing service
+     */
+    private static void cleanUpPremiumBillingService(){
+        HttpEntity<String> entity = new HttpEntity<>(null);
+        String url = "http://localhost:9004/api/v1/zeus/premium-billing/delete";
+        testRestTemplate.exchange(url, HttpMethod.DELETE, entity, ZeusApiResponse.class);
+        log.info("Premium Billing Service db cleaned up.");
     }
 }
