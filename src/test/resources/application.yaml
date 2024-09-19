@@ -5,6 +5,7 @@ url:
     file-storage-service: http://localhost:8083
     transaction-manager: http://localhost:8095
     member-management-service: http://localhost:8084
+    premium-billing-service: http://localhost:9004
 edi:
   file:
     location: /Users/edi/test/files/
@@ -21,7 +22,7 @@ spring:
     defer-datasource-initialization: true
     properties:
       hibernate:
-        show_sql: true
+        show_sql: false
         format_sql: true
   profiles:
     active: test
