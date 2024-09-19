@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.brihaspathee.zeus</groupId>
     <artifactId>file-mgmt-service</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <name>File Management Service</name>
     <description>Service that intakes all the files that are received</description>
     <url>http://www.brihaspathee.com</url>
@@ -31,7 +31,7 @@
         <!--        <developerConnection>scm:git:ssh://github.com:Zeus-2-0/reference-data-service.git</developerConnection>-->
         <developerConnection>scm:git:git@github.com:Zeus-2-0/file-mgmt-service.git</developerConnection>
         <url>scm:git:http://github.com/Zeus-2-0/file-mgmt-service</url>
-        <tag>1.0.0</tag>
+        <tag>file-mgmt-service-1.0.4</tag>
     </scm>
 
     <developers>
