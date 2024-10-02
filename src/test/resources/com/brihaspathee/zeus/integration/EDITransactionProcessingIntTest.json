@@ -57218,13 +57218,10 @@
                       "productTypeCode": "HMO",
                       "coverageTypeCode": "FAM",
                       "delinqInd": false,
-                      "statusTypeCode": "ENROLLED",
+                      "statusTypeCode": "PRE_MEMBER",
                       "ztcn": "3BLQGRBXGSM1B7E",
                       "source": "MARKETPLACE",
                       "effectiveReason": "MBS",
-                      "effectuationDate": "2023-12-16",
-                      "paidThroughDate": "2024-01-31",
-                      "claimPaidThroughDate": "2024-01-31",
                       "premiumSpans": [
                         {
                           "sequence": 1,
@@ -57490,11 +57487,8 @@
                       "productTypeCode": "HMO",
                       "coverageTypeCode": "FAM",
                       "delinqInd": false,
-                      "statusTypeCode": "ENROLLED",
+                      "statusTypeCode": "PRE_MEMBER",
                       "effectiveReason": "MBS",
-                      "effectuationDate": "2023-12-16",
-                      "paidThroughDate": "2024-01-31",
-                      "claimPaidThroughDate": "2024-01-31",
                       "premiumSpans": [
                         {
                           "sequence": 1,
