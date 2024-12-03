@@ -177,23 +177,23 @@ public class EDITransactionProcessingIntTest {
         if(Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
             log.info("Inside Cleanup");
             // Clean up the data in file storage service
-            cleanUpFileStorageService();
-            // Clean up the data in transaction origination service
-            cleanUpTransactionOriginationService();
-            // Clean up the data in transaction storage service
-            cleanUpTransactionStorageService();
-            // Clean up the data in data transformation service
-            cleanUpDataTransformerService();
-            // Clean up the data in transaction manager service
-            cleanUpTransactionManagerService();
-            // Clean up the data in validation service
-            cleanUpValidationService();
-            // Clean up the data in account processor service
-            cleanUpAccountProcessorService();
-            // Clean up the data in member management service
-            cleanUpMemberManagementService();
-            // Clean up the data in premium billing service
-            cleanUpPremiumBillingService();
+//            cleanUpFileStorageService();
+//            // Clean up the data in transaction origination service
+//            cleanUpTransactionOriginationService();
+//            // Clean up the data in transaction storage service
+//            cleanUpTransactionStorageService();
+//            // Clean up the data in data transformation service
+//            cleanUpDataTransformerService();
+//            // Clean up the data in transaction manager service
+//            cleanUpTransactionManagerService();
+//            // Clean up the data in validation service
+//            cleanUpValidationService();
+//            // Clean up the data in account processor service
+//            cleanUpAccountProcessorService();
+//            // Clean up the data in member management service
+//            cleanUpMemberManagementService();
+//            // Clean up the data in premium billing service
+//            cleanUpPremiumBillingService();
         }
 
     }
@@ -202,14 +202,14 @@ public class EDITransactionProcessingIntTest {
      * This method tests the processing of the transaction
      * @param repetitionInfo the repetition identifies the test iteration
      */
-    @RepeatedTest(67) // total - 64
+    @RepeatedTest(6) // total - 64
     @Order(1)
     void testProcessTransaction(RepetitionInfo repetitionInfo) throws IOException, InterruptedException {
         if(Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
-            if(repetitionInfo.getCurrentRepetition() >= 65){
-                testTransactions(repetitionInfo);
-            }
-//            testTransactions(repetitionInfo);
+//            if(repetitionInfo.getCurrentRepetition() >= 65){
+//                testTransactions(repetitionInfo);
+//            }
+            testTransactions(repetitionInfo);
         }else{
             log.info("Environment is not integration testing, hence not running the test");
         }
@@ -378,6 +378,9 @@ public class EDITransactionProcessingIntTest {
      * @param premiumPaymentDto
      */
     private void postPremiumPayment(PremiumPaymentDto premiumPaymentDto){
+        log.info("****************** Posting Premium Payment *******************");
+        log.info("****************** Date: {} *************************", premiumPaymentDto.getPaymentDate());
+        log.info("****************** Premium Payment Amount: {} **********************", premiumPaymentDto.getPaymentAmount());
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<PremiumPaymentDto> httpEntity = new HttpEntity<>(premiumPaymentDto, headers);
