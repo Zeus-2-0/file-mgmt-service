@@ -1960,6 +1960,26 @@
                     "enrollmentSpanCode": "LRD0E0819CNLZVN",
                     "paymentAmount": "50.0",
                     "paymentDate": "2020-12-23"
+                  },
+                  {
+                    "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                    "paymentAmount": "50.0",
+                    "paymentDate": "2021-01-21"
+                  },
+                  {
+                    "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                    "paymentAmount": "100.0",
+                    "paymentDate": "2021-02-21"
+                  },
+                  {
+                    "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                    "paymentAmount": "150.0",
+                    "paymentDate": "2021-04-21"
+                  },
+                  {
+                    "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                    "paymentAmount": "250.0",
+                    "paymentDate": "2021-05-21"
                   }
                 ]
               }
@@ -2580,6 +2600,842 @@
                         }
                       ]
                     }
+                  },
+                  "2021-01-21": {
+                    "expectedAccountDto": {
+                      "accountNumber": "ZMNZS3VLM8PUP14",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "exchangeSubscriberId": "40782481",
+                          "effectuationDate": "2020-12-23",
+                          "planId": "52323FL0406336",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "31430505",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2021-02-28",
+                          "claimPaidThroughDate": "2021-02-28",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2021-01-01",
+                              "endDate": "2021-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "09",
+                              "totalPremiumAmount": 313.00,
+                              "totalResponsibleAmount": 50.00,
+                              "aptcAmount": 263.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "8AJEN5DU8T44Y2V",
+                                  "exchangeMemberId": "40782481",
+                                  "individualPremiumAmount": 313.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "members": [
+                        {
+                          "memberCode": "8AJEN5DU8T44Y2V",
+                          "firstName": "Matt",
+                          "middleName": "Y",
+                          "lastName": "Mccall",
+                          "relationshipTypeCode": "HOH",
+                          "dateOfBirth": "1985-03-03",
+                          "genderTypeCode": "MALE",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "memberAddresses": [
+                            {
+                              "memberAddressCode": "NMXFUNSH4HT1KA3",
+                              "addressTypeCode": "RESIDENCE",
+                              "addressLine1": "69 W. Selby St",
+                              "addressLine2": "Apt 2307",
+                              "city": "Odessa",
+                              "stateTypeCode": "FL",
+                              "fipsCode": "12003",
+                              "zipCode": "33008",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberIdentifiers": [
+                            {
+                              "memberIdentifierCode": "6IRWR3Z3Z070NNJ",
+                              "identifierTypeCode": "SSN",
+                              "identifierValue": "222119716",
+                              "isActive": true,
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "active": true
+                            }
+                          ],
+                          "memberLanguages": [
+                            {
+                              "memberLanguageCode": "9HJ700FMDZK32YW",
+                              "languageTypeCode": "WRITING",
+                              "languageCode": "eng",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            },
+                            {
+                              "memberLanguageCode": "IIZQ0CLZDQ0E5NT",
+                              "languageTypeCode": "SPEAKING",
+                              "languageCode": "eng",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberPhones": [
+                            {
+                              "memberPhoneCode": "4EW62E7PQJQIRP0",
+                              "phoneTypeCode": "HOME",
+                              "phoneNumber": "603 704-8993",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberEmails": [
+                            {
+                              "memberEmailCode": "YCT91ZEDVH1F1L2",
+                              "emailTypeCode": "PERSONAL",
+                              "email": "matt.mccall@gmail.com",
+                              "source": "MARKETPLACE",
+                              "isPrimary": true,
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "startDate": "2020-12-15",
+                              "primary": true
+                            }
+                          ]
+                        }
+                      ],
+                      "brokers": [
+                        {
+                          "brokerCode": "WA9LYKJ4JUOXAG7",
+                          "brokerName": "Chris Tapia",
+                          "brokerId": "23267921",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "sponsors": [
+                        {
+                          "sponsorCode": "LNX6CQAR93B66D6",
+                          "sponsorId": "222119716",
+                          "sponsorName": "Matt Mccall",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "payers": [
+                        {
+                          "payerCode": "OYNC7GWTZJGMTDY",
+                          "payerName": "Ambetter from Sunshine Health",
+                          "payerId": "060641618",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ]
+                    },
+                    "expectedPBAccountDto": {
+                      "accountNumber": "ZMNZS3VLM8PUP14",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "exchangeSubscriberId": "40782481",
+                          "effectuationDate": "2020-12-23",
+                          "planId": "52323FL0406336",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "31430505",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2021-02-28",
+                          "claimPaidThroughDate": "2021-02-28",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                              "startDate": "2021-01-01",
+                              "endDate": "2021-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "09",
+                              "totalPremiumAmount": 313.00,
+                              "totalResponsibleAmount": 50.00,
+                              "aptcAmount": 263.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "8AJEN5DU8T44Y2V",
+                                  "exchangeMemberId": "40782481",
+                                  "individualPremiumAmount": 313.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "2021-02-21": {
+                    "expectedAccountDto": {
+                      "accountNumber": "ZMNZS3VLM8PUP14",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "exchangeSubscriberId": "40782481",
+                          "effectuationDate": "2020-12-23",
+                          "planId": "52323FL0406336",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "31430505",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2021-04-30",
+                          "claimPaidThroughDate": "2021-04-30",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2021-01-01",
+                              "endDate": "2021-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "09",
+                              "totalPremiumAmount": 313.00,
+                              "totalResponsibleAmount": 50.00,
+                              "aptcAmount": 263.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "8AJEN5DU8T44Y2V",
+                                  "exchangeMemberId": "40782481",
+                                  "individualPremiumAmount": 313.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "members": [
+                        {
+                          "memberCode": "8AJEN5DU8T44Y2V",
+                          "firstName": "Matt",
+                          "middleName": "Y",
+                          "lastName": "Mccall",
+                          "relationshipTypeCode": "HOH",
+                          "dateOfBirth": "1985-03-03",
+                          "genderTypeCode": "MALE",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "memberAddresses": [
+                            {
+                              "memberAddressCode": "NMXFUNSH4HT1KA3",
+                              "addressTypeCode": "RESIDENCE",
+                              "addressLine1": "69 W. Selby St",
+                              "addressLine2": "Apt 2307",
+                              "city": "Odessa",
+                              "stateTypeCode": "FL",
+                              "fipsCode": "12003",
+                              "zipCode": "33008",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberIdentifiers": [
+                            {
+                              "memberIdentifierCode": "6IRWR3Z3Z070NNJ",
+                              "identifierTypeCode": "SSN",
+                              "identifierValue": "222119716",
+                              "isActive": true,
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "active": true
+                            }
+                          ],
+                          "memberLanguages": [
+                            {
+                              "memberLanguageCode": "9HJ700FMDZK32YW",
+                              "languageTypeCode": "WRITING",
+                              "languageCode": "eng",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            },
+                            {
+                              "memberLanguageCode": "IIZQ0CLZDQ0E5NT",
+                              "languageTypeCode": "SPEAKING",
+                              "languageCode": "eng",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberPhones": [
+                            {
+                              "memberPhoneCode": "4EW62E7PQJQIRP0",
+                              "phoneTypeCode": "HOME",
+                              "phoneNumber": "603 704-8993",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberEmails": [
+                            {
+                              "memberEmailCode": "YCT91ZEDVH1F1L2",
+                              "emailTypeCode": "PERSONAL",
+                              "email": "matt.mccall@gmail.com",
+                              "source": "MARKETPLACE",
+                              "isPrimary": true,
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "startDate": "2020-12-15",
+                              "primary": true
+                            }
+                          ]
+                        }
+                      ],
+                      "brokers": [
+                        {
+                          "brokerCode": "WA9LYKJ4JUOXAG7",
+                          "brokerName": "Chris Tapia",
+                          "brokerId": "23267921",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "sponsors": [
+                        {
+                          "sponsorCode": "LNX6CQAR93B66D6",
+                          "sponsorId": "222119716",
+                          "sponsorName": "Matt Mccall",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "payers": [
+                        {
+                          "payerCode": "OYNC7GWTZJGMTDY",
+                          "payerName": "Ambetter from Sunshine Health",
+                          "payerId": "060641618",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ]
+                    },
+                    "expectedPBAccountDto": {
+                      "accountNumber": "ZMNZS3VLM8PUP14",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "exchangeSubscriberId": "40782481",
+                          "effectuationDate": "2020-12-23",
+                          "planId": "52323FL0406336",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "31430505",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2021-04-30",
+                          "claimPaidThroughDate": "2021-04-30",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                              "startDate": "2021-01-01",
+                              "endDate": "2021-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "09",
+                              "totalPremiumAmount": 313.00,
+                              "totalResponsibleAmount": 50.00,
+                              "aptcAmount": 263.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "8AJEN5DU8T44Y2V",
+                                  "exchangeMemberId": "40782481",
+                                  "individualPremiumAmount": 313.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "2021-04-21": {
+                    "expectedAccountDto": {
+                      "accountNumber": "ZMNZS3VLM8PUP14",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "exchangeSubscriberId": "40782481",
+                          "effectuationDate": "2020-12-23",
+                          "planId": "52323FL0406336",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "31430505",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2021-07-31",
+                          "claimPaidThroughDate": "2021-07-31",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2021-01-01",
+                              "endDate": "2021-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "09",
+                              "totalPremiumAmount": 313.00,
+                              "totalResponsibleAmount": 50.00,
+                              "aptcAmount": 263.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "8AJEN5DU8T44Y2V",
+                                  "exchangeMemberId": "40782481",
+                                  "individualPremiumAmount": 313.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "members": [
+                        {
+                          "memberCode": "8AJEN5DU8T44Y2V",
+                          "firstName": "Matt",
+                          "middleName": "Y",
+                          "lastName": "Mccall",
+                          "relationshipTypeCode": "HOH",
+                          "dateOfBirth": "1985-03-03",
+                          "genderTypeCode": "MALE",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "memberAddresses": [
+                            {
+                              "memberAddressCode": "NMXFUNSH4HT1KA3",
+                              "addressTypeCode": "RESIDENCE",
+                              "addressLine1": "69 W. Selby St",
+                              "addressLine2": "Apt 2307",
+                              "city": "Odessa",
+                              "stateTypeCode": "FL",
+                              "fipsCode": "12003",
+                              "zipCode": "33008",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberIdentifiers": [
+                            {
+                              "memberIdentifierCode": "6IRWR3Z3Z070NNJ",
+                              "identifierTypeCode": "SSN",
+                              "identifierValue": "222119716",
+                              "isActive": true,
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "active": true
+                            }
+                          ],
+                          "memberLanguages": [
+                            {
+                              "memberLanguageCode": "9HJ700FMDZK32YW",
+                              "languageTypeCode": "WRITING",
+                              "languageCode": "eng",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            },
+                            {
+                              "memberLanguageCode": "IIZQ0CLZDQ0E5NT",
+                              "languageTypeCode": "SPEAKING",
+                              "languageCode": "eng",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberPhones": [
+                            {
+                              "memberPhoneCode": "4EW62E7PQJQIRP0",
+                              "phoneTypeCode": "HOME",
+                              "phoneNumber": "603 704-8993",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberEmails": [
+                            {
+                              "memberEmailCode": "YCT91ZEDVH1F1L2",
+                              "emailTypeCode": "PERSONAL",
+                              "email": "matt.mccall@gmail.com",
+                              "source": "MARKETPLACE",
+                              "isPrimary": true,
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "startDate": "2020-12-15",
+                              "primary": true
+                            }
+                          ]
+                        }
+                      ],
+                      "brokers": [
+                        {
+                          "brokerCode": "WA9LYKJ4JUOXAG7",
+                          "brokerName": "Chris Tapia",
+                          "brokerId": "23267921",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "sponsors": [
+                        {
+                          "sponsorCode": "LNX6CQAR93B66D6",
+                          "sponsorId": "222119716",
+                          "sponsorName": "Matt Mccall",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "payers": [
+                        {
+                          "payerCode": "OYNC7GWTZJGMTDY",
+                          "payerName": "Ambetter from Sunshine Health",
+                          "payerId": "060641618",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ]
+                    },
+                    "expectedPBAccountDto": {
+                      "accountNumber": "ZMNZS3VLM8PUP14",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "exchangeSubscriberId": "40782481",
+                          "effectuationDate": "2020-12-23",
+                          "planId": "52323FL0406336",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "31430505",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2021-07-31",
+                          "claimPaidThroughDate": "2021-07-31",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                              "startDate": "2021-01-01",
+                              "endDate": "2021-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "09",
+                              "totalPremiumAmount": 313.00,
+                              "totalResponsibleAmount": 50.00,
+                              "aptcAmount": 263.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "8AJEN5DU8T44Y2V",
+                                  "exchangeMemberId": "40782481",
+                                  "individualPremiumAmount": 313.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "2021-05-21": {
+                    "expectedAccountDto": {
+                      "accountNumber": "ZMNZS3VLM8PUP14",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "ztcn": "GQ1U3WRHASIRHX1",
+                      "source": "MARKETPLACE",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "exchangeSubscriberId": "40782481",
+                          "effectuationDate": "2020-12-23",
+                          "planId": "52323FL0406336",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "31430505",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2021-12-31",
+                          "claimPaidThroughDate": "2021-12-31",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2021-01-01",
+                              "endDate": "2021-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "09",
+                              "totalPremiumAmount": 313.00,
+                              "totalResponsibleAmount": 50.00,
+                              "aptcAmount": 263.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "8AJEN5DU8T44Y2V",
+                                  "exchangeMemberId": "40782481",
+                                  "individualPremiumAmount": 313.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "members": [
+                        {
+                          "memberCode": "8AJEN5DU8T44Y2V",
+                          "firstName": "Matt",
+                          "middleName": "Y",
+                          "lastName": "Mccall",
+                          "relationshipTypeCode": "HOH",
+                          "dateOfBirth": "1985-03-03",
+                          "genderTypeCode": "MALE",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "memberAddresses": [
+                            {
+                              "memberAddressCode": "NMXFUNSH4HT1KA3",
+                              "addressTypeCode": "RESIDENCE",
+                              "addressLine1": "69 W. Selby St",
+                              "addressLine2": "Apt 2307",
+                              "city": "Odessa",
+                              "stateTypeCode": "FL",
+                              "fipsCode": "12003",
+                              "zipCode": "33008",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberIdentifiers": [
+                            {
+                              "memberIdentifierCode": "6IRWR3Z3Z070NNJ",
+                              "identifierTypeCode": "SSN",
+                              "identifierValue": "222119716",
+                              "isActive": true,
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "active": true
+                            }
+                          ],
+                          "memberLanguages": [
+                            {
+                              "memberLanguageCode": "9HJ700FMDZK32YW",
+                              "languageTypeCode": "WRITING",
+                              "languageCode": "eng",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            },
+                            {
+                              "memberLanguageCode": "IIZQ0CLZDQ0E5NT",
+                              "languageTypeCode": "SPEAKING",
+                              "languageCode": "eng",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberPhones": [
+                            {
+                              "memberPhoneCode": "4EW62E7PQJQIRP0",
+                              "phoneTypeCode": "HOME",
+                              "phoneNumber": "603 704-8993",
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "source": "MARKETPLACE",
+                              "startDate": "2020-12-15"
+                            }
+                          ],
+                          "memberEmails": [
+                            {
+                              "memberEmailCode": "YCT91ZEDVH1F1L2",
+                              "emailTypeCode": "PERSONAL",
+                              "email": "matt.mccall@gmail.com",
+                              "source": "MARKETPLACE",
+                              "isPrimary": true,
+                              "ztcn": "GQ1U3WRHASIRHX1",
+                              "startDate": "2020-12-15",
+                              "primary": true
+                            }
+                          ]
+                        }
+                      ],
+                      "brokers": [
+                        {
+                          "brokerCode": "WA9LYKJ4JUOXAG7",
+                          "brokerName": "Chris Tapia",
+                          "brokerId": "23267921",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "sponsors": [
+                        {
+                          "sponsorCode": "LNX6CQAR93B66D6",
+                          "sponsorId": "222119716",
+                          "sponsorName": "Matt Mccall",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ],
+                      "payers": [
+                        {
+                          "payerCode": "OYNC7GWTZJGMTDY",
+                          "payerName": "Ambetter from Sunshine Health",
+                          "payerId": "060641618",
+                          "ztcn": "GQ1U3WRHASIRHX1",
+                          "source": "MARKETPLACE",
+                          "startDate": "2020-12-15"
+                        }
+                      ]
+                    },
+                    "expectedPBAccountDto": {
+                      "accountNumber": "ZMNZS3VLM8PUP14",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "exchangeSubscriberId": "40782481",
+                          "effectuationDate": "2020-12-23",
+                          "planId": "52323FL0406336",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "31430505",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2021-12-31",
+                          "claimPaidThroughDate": "2021-12-31",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                              "startDate": "2021-01-01",
+                              "endDate": "2021-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "09",
+                              "totalPremiumAmount": 313.00,
+                              "totalResponsibleAmount": 50.00,
+                              "aptcAmount": 263.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "8AJEN5DU8T44Y2V",
+                                  "exchangeMemberId": "40782481",
+                                  "individualPremiumAmount": 313.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   }
                 }
               }
@@ -2797,16 +3653,19 @@
                       "startDate": "2021-01-01",
                       "endDate": "2021-12-31",
                       "exchangeSubscriberId": "40782481",
+                      "effectuationDate": "2020-12-23",
                       "planId": "52323FL0406336",
                       "enrollmentType": "ACTIVE",
                       "groupPolicyId": "31430505",
                       "productTypeCode": "HMO",
                       "coverageTypeCode": "FAM",
                       "delinqInd": false,
-                      "statusTypeCode": "PRE_MEMBER",
+                      "statusTypeCode": "ENROLLED",
                       "ztcn": "GQ1U3WRHASIRHX1",
                       "source": "MARKETPLACE",
                       "effectiveReason": "MBS",
+                      "paidThroughDate": "2021-12-31",
+                      "claimPaidThroughDate": "2021-12-31",
                       "premiumSpans": [
                         {
                           "sequence": 1,
@@ -2940,6 +3799,52 @@
                       "startDate": "2020-12-15"
                     }
                   ]
+                },
+                "expectedPBAccountDto": {
+                  "accountNumber": "ZMNZS3VLM8PUP14",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "LRD0E0819CNLZVN",
+                      "stateTypeCode": "FL",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "FL_BU",
+                      "startDate": "2021-01-01",
+                      "endDate": "2021-12-31",
+                      "exchangeSubscriberId": "40782481",
+                      "effectuationDate": "2020-12-23",
+                      "planId": "52323FL0406336",
+                      "enrollmentType": "ACTIVE",
+                      "groupPolicyId": "31430505",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "ENROLLED",
+                      "effectiveReason": "MBS",
+                      "paidThroughDate": "2021-12-31",
+                      "claimPaidThroughDate": "2021-12-31",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "SN8O8QR7JDXLH7B",
+                          "startDate": "2021-01-01",
+                          "endDate": "2021-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "09",
+                          "totalPremiumAmount": 313.00,
+                          "totalResponsibleAmount": 50.00,
+                          "aptcAmount": 263.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "8AJEN5DU8T44Y2V",
+                              "exchangeMemberId": "40782481",
+                              "individualPremiumAmount": 313.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             }
@@ -2978,7 +3883,14 @@
                       }
                     }
                   ]
-                }
+                },
+                "premiumPayments": [
+                  {
+                    "enrollmentSpanCode": "3JHYKM7Y2FT1NIH",
+                    "paymentAmount": "46.0",
+                    "paymentDate": "2023-12-23"
+                  }
+                ]
               }
             ],
             "expectedOutput": {
@@ -3414,6 +4326,371 @@
                       "startDate": "2023-12-15"
                     }
                   ]
+                },
+                "expectedPBAccountDto": {
+                  "accountNumber": "QSJ69KBOD1NX600",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "3JHYKM7Y2FT1NIH",
+                      "stateTypeCode": "FL",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "FL_BU",
+                      "startDate": "2024-01-01",
+                      "endDate": "2024-12-31",
+                      "exchangeSubscriberId": "33825103",
+                      "planId": "52323FL0406335",
+                      "enrollmentType": "ACTIVE",
+                      "groupPolicyId": "72480810",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "PRE_MEMBER",
+                      "effectiveReason": "MBS",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "WAG185N9QZQVSJA",
+                          "startDate": "2024-01-01",
+                          "endDate": "2024-03-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 123.00,
+                          "totalResponsibleAmount": 23.00,
+                          "aptcAmount": 100.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "6ESMPIDOQ3OZL60",
+                              "exchangeMemberId": "33825103",
+                              "individualPremiumAmount": 123.00
+                            }
+                          ]
+                        },
+                        {
+                          "sequence": 2,
+                          "premiumSpanCode": "40TOZ2E4J90CE7N",
+                          "startDate": "2024-04-01",
+                          "endDate": "2024-07-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 123.00,
+                          "totalResponsibleAmount": 13.00,
+                          "aptcAmount": 110.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "6ESMPIDOQ3OZL60",
+                              "exchangeMemberId": "33825103",
+                              "individualPremiumAmount": 123.00
+                            }
+                          ]
+                        },
+                        {
+                          "sequence": 3,
+                          "premiumSpanCode": "TUR9TZW03W49M2C",
+                          "startDate": "2024-08-01",
+                          "endDate": "2024-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 123.00,
+                          "totalResponsibleAmount": 0.00,
+                          "aptcAmount": 123.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "6ESMPIDOQ3OZL60",
+                              "exchangeMemberId": "33825103",
+                              "individualPremiumAmount": 123.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "expectedAccounts": {
+                  "2023-12-23": {
+                    "expectedAccountDto": {
+                      "accountNumber": "QSJ69KBOD1NX600",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "ztcn": "VBTFWP9MO47QPML",
+                      "source": "MARKETPLACE",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "3JHYKM7Y2FT1NIH",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2024-01-01",
+                          "endDate": "2024-12-31",
+                          "exchangeSubscriberId": "33825103",
+                          "effectuationDate": "2023-12-23",
+                          "planId": "52323FL0406335",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "72480810",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "ztcn": "VBTFWP9MO47QPML",
+                          "source": "MARKETPLACE",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2024-02-29",
+                          "claimPaidThroughDate": "2024-02-29",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "WAG185N9QZQVSJA",
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "source": "MARKETPLACE",
+                              "startDate": "2024-01-01",
+                              "endDate": "2024-03-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "01",
+                              "totalPremiumAmount": 123.00,
+                              "totalResponsibleAmount": 23.00,
+                              "aptcAmount": 100.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "6ESMPIDOQ3OZL60",
+                                  "exchangeMemberId": "33825103",
+                                  "individualPremiumAmount": 123.00
+                                }
+                              ]
+                            },
+                            {
+                              "sequence": 2,
+                              "premiumSpanCode": "40TOZ2E4J90CE7N",
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "source": "MARKETPLACE",
+                              "startDate": "2024-04-01",
+                              "endDate": "2024-07-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "01",
+                              "totalPremiumAmount": 123.00,
+                              "totalResponsibleAmount": 13.00,
+                              "aptcAmount": 110.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "6ESMPIDOQ3OZL60",
+                                  "exchangeMemberId": "33825103",
+                                  "individualPremiumAmount": 123.00
+                                }
+                              ]
+                            },
+                            {
+                              "sequence": 3,
+                              "premiumSpanCode": "TUR9TZW03W49M2C",
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "source": "MARKETPLACE",
+                              "startDate": "2024-08-01",
+                              "endDate": "2024-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "01",
+                              "totalPremiumAmount": 123.00,
+                              "totalResponsibleAmount": 0.00,
+                              "aptcAmount": 123.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "6ESMPIDOQ3OZL60",
+                                  "exchangeMemberId": "33825103",
+                                  "individualPremiumAmount": 123.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "members": [
+                        {
+                          "memberCode": "6ESMPIDOQ3OZL60",
+                          "firstName": "Neal",
+                          "middleName": "Y",
+                          "lastName": "Reyes",
+                          "relationshipTypeCode": "HOH",
+                          "dateOfBirth": "1985-05-18",
+                          "genderTypeCode": "MALE",
+                          "ztcn": "VBTFWP9MO47QPML",
+                          "source": "MARKETPLACE",
+                          "memberAddresses": [
+                            {
+                              "memberAddressCode": "17AE687XNVR9XDW",
+                              "addressTypeCode": "RESIDENCE",
+                              "addressLine1": "946 Mulberry St.",
+                              "city": "Gainesville",
+                              "stateTypeCode": "FL",
+                              "fipsCode": "12001",
+                              "zipCode": "32601",
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "source": "MARKETPLACE",
+                              "startDate": "2023-12-15"
+                            }
+                          ],
+                          "memberIdentifiers": [
+                            {
+                              "memberIdentifierCode": "YY5SNBS6RITZJI1",
+                              "identifierTypeCode": "SSN",
+                              "identifierValue": "262990631",
+                              "isActive": true,
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "source": "MARKETPLACE",
+                              "active": true
+                            }
+                          ],
+                          "memberLanguages": [
+                            {
+                              "memberLanguageCode": "5XV3PA735112YOK",
+                              "languageTypeCode": "WRITING",
+                              "languageCode": "eng",
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "source": "MARKETPLACE",
+                              "startDate": "2023-12-15"
+                            },
+                            {
+                              "memberLanguageCode": "DDOQHB48RYF8OUZ",
+                              "languageTypeCode": "SPEAKING",
+                              "languageCode": "eng",
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "source": "MARKETPLACE",
+                              "startDate": "2023-12-15"
+                            }
+                          ],
+                          "memberPhones": [
+                            {
+                              "memberPhoneCode": "NXMU0FCO1ZT5F63",
+                              "phoneTypeCode": "HOME",
+                              "phoneNumber": "986 295-5954",
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "source": "MARKETPLACE",
+                              "startDate": "2023-12-15"
+                            }
+                          ],
+                          "memberEmails": [
+                            {
+                              "memberEmailCode": "8FP6VQRFA0AAMB7",
+                              "emailTypeCode": "PERSONAL",
+                              "email": "neal.reyes@gmail.com",
+                              "source": "MARKETPLACE",
+                              "isPrimary": true,
+                              "ztcn": "VBTFWP9MO47QPML",
+                              "startDate": "2023-12-15",
+                              "primary": true
+                            }
+                          ]
+                        }
+                      ],
+                      "brokers": [
+                        {
+                          "brokerCode": "B8NMU7U0VXZIF7P",
+                          "brokerName": "Chris Tapia",
+                          "brokerId": "23267921",
+                          "ztcn": "VBTFWP9MO47QPML",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ],
+                      "sponsors": [
+                        {
+                          "sponsorCode": "WT80O8WA2D5GBZZ",
+                          "sponsorId": "262990631",
+                          "sponsorName": "Neal Reyes",
+                          "ztcn": "VBTFWP9MO47QPML",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ],
+                      "payers": [
+                        {
+                          "payerCode": "OOBLE45TS8YVTMO",
+                          "payerName": "Ambetter from Sunshine Health",
+                          "payerId": "060641618",
+                          "ztcn": "VBTFWP9MO47QPML",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ]
+                    },
+                    "expectedPBAccountDto": {
+                      "accountNumber": "QSJ69KBOD1NX600",
+                      "lineOfBusinessTypeCode": "HIX",
+                      "enrollmentSpans": [
+                        {
+                          "enrollmentSpanCode": "3JHYKM7Y2FT1NIH",
+                          "stateTypeCode": "FL",
+                          "marketplaceTypeCode": "FFM",
+                          "businessUnitTypeCode": "FL_BU",
+                          "startDate": "2024-01-01",
+                          "endDate": "2024-12-31",
+                          "exchangeSubscriberId": "33825103",
+                          "effectuationDate": "2023-12-23",
+                          "planId": "52323FL0406335",
+                          "enrollmentType": "ACTIVE",
+                          "groupPolicyId": "72480810",
+                          "productTypeCode": "HMO",
+                          "coverageTypeCode": "FAM",
+                          "delinqInd": false,
+                          "statusTypeCode": "ENROLLED",
+                          "effectiveReason": "MBS",
+                          "paidThroughDate": "2024-02-29",
+                          "claimPaidThroughDate": "2024-02-29",
+                          "premiumSpans": [
+                            {
+                              "sequence": 1,
+                              "premiumSpanCode": "WAG185N9QZQVSJA",
+                              "startDate": "2024-01-01",
+                              "endDate": "2024-03-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "01",
+                              "totalPremiumAmount": 123.00,
+                              "totalResponsibleAmount": 23.00,
+                              "aptcAmount": 100.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "6ESMPIDOQ3OZL60",
+                                  "exchangeMemberId": "33825103",
+                                  "individualPremiumAmount": 123.00
+                                }
+                              ]
+                            },
+                            {
+                              "sequence": 2,
+                              "premiumSpanCode": "40TOZ2E4J90CE7N",
+                              "startDate": "2024-04-01",
+                              "endDate": "2024-07-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "01",
+                              "totalPremiumAmount": 123.00,
+                              "totalResponsibleAmount": 13.00,
+                              "aptcAmount": 110.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "6ESMPIDOQ3OZL60",
+                                  "exchangeMemberId": "33825103",
+                                  "individualPremiumAmount": 123.00
+                                }
+                              ]
+                            },
+                            {
+                              "sequence": 3,
+                              "premiumSpanCode": "TUR9TZW03W49M2C",
+                              "startDate": "2024-08-01",
+                              "endDate": "2024-12-31",
+                              "statusTypeCode": "ACTIVE",
+                              "csrVariant": "01",
+                              "totalPremiumAmount": 123.00,
+                              "totalResponsibleAmount": 0.00,
+                              "aptcAmount": 123.00,
+                              "memberPremiumSpans": [
+                                {
+                                  "memberCode": "6ESMPIDOQ3OZL60",
+                                  "exchangeMemberId": "33825103",
+                                  "individualPremiumAmount": 123.00
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
