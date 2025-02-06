@@ -177,23 +177,23 @@ public class EDITransactionProcessingIntTest {
         if(Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
             log.info("Inside Cleanup");
             // Clean up the data in file storage service
-//            cleanUpFileStorageService();
-//            // Clean up the data in transaction origination service
-//            cleanUpTransactionOriginationService();
-//            // Clean up the data in transaction storage service
-//            cleanUpTransactionStorageService();
-//            // Clean up the data in data transformation service
-//            cleanUpDataTransformerService();
-//            // Clean up the data in transaction manager service
-//            cleanUpTransactionManagerService();
-//            // Clean up the data in validation service
-//            cleanUpValidationService();
-//            // Clean up the data in account processor service
-//            cleanUpAccountProcessorService();
-//            // Clean up the data in member management service
-//            cleanUpMemberManagementService();
-//            // Clean up the data in premium billing service
-//            cleanUpPremiumBillingService();
+            cleanUpFileStorageService();
+            // Clean up the data in transaction origination service
+            cleanUpTransactionOriginationService();
+            // Clean up the data in transaction storage service
+            cleanUpTransactionStorageService();
+            // Clean up the data in data transformation service
+            cleanUpDataTransformerService();
+            // Clean up the data in transaction manager service
+            cleanUpTransactionManagerService();
+            // Clean up the data in validation service
+            cleanUpValidationService();
+            // Clean up the data in account processor service
+            cleanUpAccountProcessorService();
+            // Clean up the data in member management service
+            cleanUpMemberManagementService();
+            // Clean up the data in premium billing service
+            cleanUpPremiumBillingService();
         }
 
     }
