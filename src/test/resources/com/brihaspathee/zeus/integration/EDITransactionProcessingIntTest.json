@@ -55257,6 +55257,995 @@
                       "startDate": "2023-12-15"
                     }
                   ]
+                },
+                "expectedPBAccountDto": {
+                  "accountNumber": "RVUM1PNZ9BR9LR7",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "VQ7192KUV6P6VYE",
+                      "stateTypeCode": "MA",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "MA_BU",
+                      "startDate": "2024-01-01",
+                      "endDate": "2024-12-31",
+                      "exchangeSubscriberId": "63811527",
+                      "planId": "23455MA0535265",
+                      "enrollmentType": "ACTIVE",
+                      "groupPolicyId": "43648764",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "PRE_MEMBER",
+                      "effectiveReason": "MBS",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "GJX03YJPURYB2BH",
+                          "startDate": "2024-01-01",
+                          "endDate": "2024-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 100.00,
+                          "aptcAmount": 82.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "testData": {
+            "testCaseId": "ZEUS-INT-TEST-53.2",
+            "testCaseDescription": "Finacial Change transaction effective 7/1",
+            "folderName": "scenario-53",
+            "fileName": "larsen-family-Financial-Change-07-01.edi",
+            "icn": "837262381",
+            "transactionControlNumbers": [
+              {
+                "tcn": "960053881",
+                "ztcn": "02FDI1CZH7CUCAD",
+                "accountEntityCodes": {
+                  "entityCodes": {
+                    "premiumSpanCode": ["GJX04YJPURYB2BH"]
+                  }
+                }
+              }
+            ],
+            "expectedOutput": {
+              "960053881": {
+                "exceptionExpected": false,
+                "expectedTransactionDto": {
+                  "ztcn": "02FDI1CZH7CUCAD",
+                  "source": "MARKETPLACE",
+                  "transactionReceivedDate": "2023-12-17T21:05:16.000Z",
+                  "transactionDetail": {
+                    "transactionTypeCode": "CHANGE",
+                    "coverageTypeCode": "FAM",
+                    "planId": "23455MA0535265",
+                    "csrVariant": "01",
+                    "groupPolicyId": "43648764",
+                    "effectiveDate": "2024-01-01",
+                    "maintenanceReasonCode": "MBS"
+                  },
+                  "transactionStatus": {
+                    "transactionStatusTypeCode": "PROCESSED",
+                    "processingStatusTypeCode": "PROCESSED"
+                  },
+                  "transactionAttributes": [
+                    {
+                      "transactionAttributeTypeCode": "SRCEXCHID",
+                      "transactionAttributeValue": "MA0"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "APPID",
+                      "transactionAttributeValue": "8181542751-1"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "RATINGAREA",
+                      "transactionAttributeValue": "R-MA044"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "REQSBTTMS",
+                      "transactionAttributeValue": "20231217210516"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "AMRC",
+                      "transactionAttributeValue": "FINANCIAL CHANGE"
+                    }
+                  ],
+                  "transactionRates": [
+                    {
+                      "rateTypeCode": "TOTRESAMT",
+                      "transactionRate": 82.0,
+                      "csrVariant": "01",
+                      "rateStartDate": "2024-07-01"
+                    },
+                    {
+                      "rateTypeCode": "PREAMTTOT",
+                      "transactionRate": 182.00,
+                      "csrVariant": "01",
+                      "rateStartDate": "2024-07-01"
+                    },
+                    {
+                      "rateTypeCode": "APTCAMT",
+                      "transactionRate": 100.00,
+                      "csrVariant": "01",
+                      "rateStartDate": "2024-07-01"
+                    }
+                  ],
+                  "tradingPartnerDto": {
+                    "tradingPartnerId": "63734",
+                    "lineOfBusinessTypeCode": "HIX",
+                    "businessTypeCode": "MA_BU",
+                    "marketplaceTypeCode": "FFM",
+                    "stateTypeCode": "MA"
+                  },
+                  "sponsor": {
+                    "sponsorName": "Kyle Larsen",
+                    "sponsorId": "657340439",
+                    "receivedDate": "2023-12-17T21:05:16.000Z"
+                  },
+                  "broker": {
+                    "brokerName": "Devin Hill",
+                    "brokerId": "34812298",
+                    "receivedDate": "2023-12-17T21:05:16.000Z"
+                  },
+                  "payer": {
+                    "payerName": "Ambetter from Boston Health",
+                    "payerId": "060641619",
+                    "receivedDate": "2023-12-17T21:05:16.000Z"
+                  },
+                  "members": [
+                    {
+                      "transactionTypeCode": "CHANGE",
+                      "effectiveDate": "2024-01-01",
+                      "relationshipTypeCode": "HOH",
+                      "reasonTypeCode": "MBS",
+                      "firstName": "Kyle",
+                      "middleName": "W",
+                      "lastName": "Larsen",
+                      "tobaccoIndicator": "TOBUSE",
+                      "dateOfBirth": "1982-05-16",
+                      "genderTypeCode": "MALE",
+                      "memberRate": 182.00,
+                      "productCatalogRate": 182.00,
+                      "memberPhones": [
+                        {
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "704 365-1299",
+                          "receivedDate": "2023-12-17T21:05:16.000Z"
+                        }
+                      ],
+                      "memberAddresses": [
+                        {
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "693 Parker Rd.",
+                          "city": "Norton",
+                          "stateTypeCode": "MA",
+                          "zipCode": "02766",
+                          "countyCode": "25005",
+                          "receivedDate": "2023-12-17T21:05:16.000Z"
+                        }
+                      ],
+                      "identifiers": [
+                        {
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "657340439",
+                          "receivedDate": "2023-12-17T21:05:16.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHSUBID",
+                          "identifierValue": "63811527",
+                          "receivedDate": "2023-12-17T21:05:16.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHMEMID",
+                          "identifierValue": "63811527",
+                          "receivedDate": "2023-12-17T21:05:16.000Z"
+                        }
+                      ],
+                      "emails": [
+                        {
+                          "email": "kyle.larsen@gmail.com",
+                          "receivedDate": "2023-12-17T21:05:16.000Z"
+                        }
+                      ],
+                      "languages": [
+                        {
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "eng",
+                          "receivedDate": "2023-12-17T21:05:16.000Z"
+                        },
+                        {
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "eng",
+                          "receivedDate": "2023-12-17T21:05:16.000Z"
+                        }
+                      ]
+                    }
+                  ],
+                  "transactionRules": [
+                    {
+                      "ruleId": "J1BW1EI6UJGNQMY",
+                      "ruleName": "EXCH_SUB_ID",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "OLG1QV5NKWHFYLG",
+                      "ruleName": "PREMIUM_AMT_TOTAL",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "GLPSKJXBMPXDVUI",
+                      "ruleName": "EFFECTIVE_DATE_PRESENCE",
+                      "rulePassed": true,
+                      "transactionMemberCode": "H1FYP0T32WU5VL3",
+                      "exchangeMemberId": "63811527"
+                    },
+                    {
+                      "ruleId": "NHS5WV07S2N3AJ9",
+                      "ruleName": "EXCH_MEM_ID",
+                      "rulePassed": true,
+                      "transactionMemberCode": "H1FYP0T32WU5VL3",
+                      "exchangeMemberId": "63811527"
+                    },
+                    {
+                      "ruleId": "AU3IUZ2FTSAFAV7",
+                      "ruleName": "DATE_OF_BIRTH",
+                      "rulePassed": true,
+                      "transactionMemberCode": "ZGGX2QXG25OA3I0",
+                      "exchangeMemberId": "63811527"
+                    },
+                    {
+                      "ruleId": "84WNR9KAS23XKP3",
+                      "ruleName": "GENDER",
+                      "rulePassed": true,
+                      "transactionMemberCode": "ZGGX2QXG25OA3I0",
+                      "exchangeMemberId": "63811527"
+                    }
+                  ]
+                },
+                "expectedAccountDto": {
+                  "accountNumber": "RVUM1PNZ9BR9LR7",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "ztcn": "01FDI1CZH7CUCAD",
+                  "source": "MARKETPLACE",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "VQ7192KUV6P6VYE",
+                      "stateTypeCode": "MA",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "MA_BU",
+                      "startDate": "2024-01-01",
+                      "endDate": "2024-12-31",
+                      "exchangeSubscriberId": "63811527",
+                      "planId": "23455MA0535265",
+                      "enrollmentType": "ACTIVE",
+                      "groupPolicyId": "43648764",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "PRE_MEMBER",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "effectiveReason": "MBS",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "GJX03YJPURYB2BH",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2024-01-01",
+                          "endDate": "2024-06-30",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 100.00,
+                          "aptcAmount": 82.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        },
+                        {
+                          "sequence": 2,
+                          "premiumSpanCode": "GJX04YJPURYB2BH",
+                          "ztcn": "02FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2024-07-01",
+                          "endDate": "2024-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 82.00,
+                          "aptcAmount": 100.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "members": [
+                    {
+                      "memberCode": "VH5S58WMYXG9EUJ",
+                      "firstName": "Kyle",
+                      "middleName": "W",
+                      "lastName": "Larsen",
+                      "relationshipTypeCode": "HOH",
+                      "dateOfBirth": "1982-05-16",
+                      "genderTypeCode": "MALE",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "memberAddresses": [
+                        {
+                          "memberAddressCode": "0KBU6XIG86QUXBD",
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "693 Parker Rd.",
+                          "city": "Norton",
+                          "stateTypeCode": "MA",
+                          "fipsCode": "25005",
+                          "zipCode": "02766",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ],
+                      "memberIdentifiers": [
+                        {
+                          "memberIdentifierCode": "VKA88PGCKCK96H0",
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "657340439",
+                          "isActive": true,
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "active": true
+                        }
+                      ],
+                      "memberLanguages": [
+                        {
+                          "memberLanguageCode": "9K19UGWHJR6WJXR",
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "eng",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        },
+                        {
+                          "memberLanguageCode": "PN9KNFS391S2BM4",
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "eng",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ],
+                      "memberPhones": [
+                        {
+                          "memberPhoneCode": "WIDEWX0T1OMU9M8",
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "704 365-1299",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ],
+                      "memberEmails": [
+                        {
+                          "memberEmailCode": "AKIJSGL1FLTYQ0A",
+                          "emailTypeCode": "PERSONAL",
+                          "email": "kyle.larsen@gmail.com",
+                          "source": "MARKETPLACE",
+                          "isPrimary": true,
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "startDate": "2023-12-15",
+                          "primary": true
+                        }
+                      ]
+                    }
+                  ],
+                  "brokers": [
+                    {
+                      "brokerCode": "S3CNW2WA9PAJU8N",
+                      "brokerName": "Devin Hill",
+                      "brokerId": "34812298",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "startDate": "2023-12-15"
+                    }
+                  ],
+                  "sponsors": [
+                    {
+                      "sponsorCode": "4QFORESL8LEBFSV",
+                      "sponsorId": "657340439",
+                      "sponsorName": "Kyle Larsen",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "startDate": "2023-12-15"
+                    }
+                  ],
+                  "payers": [
+                    {
+                      "payerCode": "1CBWBEY2FWBXAOP",
+                      "payerName": "Ambetter from Boston Health",
+                      "payerId": "060641619",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "startDate": "2023-12-15"
+                    }
+                  ]
+                },
+                "expectedPBAccountDto": {
+                  "accountNumber": "RVUM1PNZ9BR9LR7",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "VQ7192KUV6P6VYE",
+                      "stateTypeCode": "MA",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "MA_BU",
+                      "startDate": "2024-01-01",
+                      "endDate": "2024-12-31",
+                      "exchangeSubscriberId": "63811527",
+                      "planId": "23455MA0535265",
+                      "enrollmentType": "ACTIVE",
+                      "groupPolicyId": "43648764",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "PRE_MEMBER",
+                      "effectiveReason": "MBS",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "GJX03YJPURYB2BH",
+                          "startDate": "2024-01-01",
+                          "endDate": "2024-06-30",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 100.00,
+                          "aptcAmount": 82.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        },
+                        {
+                          "sequence": 2,
+                          "premiumSpanCode": "GJX04YJPURYB2BH",
+                          "startDate": "2024-07-01",
+                          "endDate": "2024-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 82.00,
+                          "aptcAmount": 100.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "testData": {
+            "testCaseId": "ZEUS-INT-TEST-53.3",
+            "testCaseDescription": "Finacial Change transaction effective 6/1",
+            "folderName": "scenario-53",
+            "fileName": "larsen-family-Financial-Change-06-01.edi",
+            "icn": "837262382",
+            "transactionControlNumbers": [
+              {
+                "tcn": "960053882",
+                "ztcn": "03FDI1CZH7CUCAD",
+                "accountEntityCodes": {
+                  "entityCodes": {
+                    "premiumSpanCode": ["GJX05YJPURYB2BH"]
+                  }
+                }
+              }
+            ],
+            "expectedOutput": {
+              "960053882": {
+                "exceptionExpected": false,
+                "expectedTransactionDto": {
+                  "ztcn": "03FDI1CZH7CUCAD",
+                  "source": "MARKETPLACE",
+                  "transactionReceivedDate": "2023-12-19T21:05:16.000Z",
+                  "transactionDetail": {
+                    "transactionTypeCode": "CHANGE",
+                    "coverageTypeCode": "FAM",
+                    "planId": "23455MA0535265",
+                    "csrVariant": "01",
+                    "groupPolicyId": "43648764",
+                    "effectiveDate": "2024-01-01",
+                    "maintenanceReasonCode": "MBS"
+                  },
+                  "transactionStatus": {
+                    "transactionStatusTypeCode": "PROCESSED",
+                    "processingStatusTypeCode": "PROCESSED"
+                  },
+                  "transactionAttributes": [
+                    {
+                      "transactionAttributeTypeCode": "SRCEXCHID",
+                      "transactionAttributeValue": "MA0"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "APPID",
+                      "transactionAttributeValue": "8181542752-1"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "RATINGAREA",
+                      "transactionAttributeValue": "R-MA044"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "REQSBTTMS",
+                      "transactionAttributeValue": "20231219210516"
+                    },
+                    {
+                      "transactionAttributeTypeCode": "AMRC",
+                      "transactionAttributeValue": "FINANCIAL CHANGE"
+                    }
+                  ],
+                  "transactionRates": [
+                    {
+                      "rateTypeCode": "TOTRESAMT",
+                      "transactionRate": 91.0,
+                      "csrVariant": "01",
+                      "rateStartDate": "2024-06-01"
+                    },
+                    {
+                      "rateTypeCode": "PREAMTTOT",
+                      "transactionRate": 182.00,
+                      "csrVariant": "01",
+                      "rateStartDate": "2024-06-01"
+                    },
+                    {
+                      "rateTypeCode": "APTCAMT",
+                      "transactionRate": 91.00,
+                      "csrVariant": "01",
+                      "rateStartDate": "2024-06-01"
+                    }
+                  ],
+                  "tradingPartnerDto": {
+                    "tradingPartnerId": "63734",
+                    "lineOfBusinessTypeCode": "HIX",
+                    "businessTypeCode": "MA_BU",
+                    "marketplaceTypeCode": "FFM",
+                    "stateTypeCode": "MA"
+                  },
+                  "sponsor": {
+                    "sponsorName": "Kyle Larsen",
+                    "sponsorId": "657340439",
+                    "receivedDate": "2023-12-19T21:05:16.000Z"
+                  },
+                  "broker": {
+                    "brokerName": "Devin Hill",
+                    "brokerId": "34812298",
+                    "receivedDate": "2023-12-19T21:05:16.000Z"
+                  },
+                  "payer": {
+                    "payerName": "Ambetter from Boston Health",
+                    "payerId": "060641619",
+                    "receivedDate": "2023-12-19T21:05:16.000Z"
+                  },
+                  "members": [
+                    {
+                      "transactionTypeCode": "CHANGE",
+                      "effectiveDate": "2024-01-01",
+                      "relationshipTypeCode": "HOH",
+                      "reasonTypeCode": "MBS",
+                      "firstName": "Kyle",
+                      "middleName": "W",
+                      "lastName": "Larsen",
+                      "tobaccoIndicator": "TOBUSE",
+                      "dateOfBirth": "1982-05-16",
+                      "genderTypeCode": "MALE",
+                      "memberRate": 182.00,
+                      "productCatalogRate": 182.00,
+                      "memberPhones": [
+                        {
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "704 365-1299",
+                          "receivedDate": "2023-12-19T21:05:16.000Z"
+                        }
+                      ],
+                      "memberAddresses": [
+                        {
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "693 Parker Rd.",
+                          "city": "Norton",
+                          "stateTypeCode": "MA",
+                          "zipCode": "02766",
+                          "countyCode": "25005",
+                          "receivedDate": "2023-12-19T21:05:16.000Z"
+                        }
+                      ],
+                      "identifiers": [
+                        {
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "657340439",
+                          "receivedDate": "2023-12-19T21:05:16.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHSUBID",
+                          "identifierValue": "63811527",
+                          "receivedDate": "2023-12-19T21:05:16.000Z"
+                        },
+                        {
+                          "identifierTypeCode": "EXCHMEMID",
+                          "identifierValue": "63811527",
+                          "receivedDate": "2023-12-19T21:05:16.000Z"
+                        }
+                      ],
+                      "emails": [
+                        {
+                          "email": "kyle.larsen@gmail.com",
+                          "receivedDate": "2023-12-19T21:05:16.000Z"
+                        }
+                      ],
+                      "languages": [
+                        {
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "eng",
+                          "receivedDate": "2023-12-19T21:05:16.000Z"
+                        },
+                        {
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "eng",
+                          "receivedDate": "2023-12-19T21:05:16.000Z"
+                        }
+                      ]
+                    }
+                  ],
+                  "transactionRules": [
+                    {
+                      "ruleId": "J1BW1EI6UJGNQMY",
+                      "ruleName": "EXCH_SUB_ID",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "OLG1QV5NKWHFYLG",
+                      "ruleName": "PREMIUM_AMT_TOTAL",
+                      "rulePassed": true
+                    },
+                    {
+                      "ruleId": "GLPSKJXBMPXDVUI",
+                      "ruleName": "EFFECTIVE_DATE_PRESENCE",
+                      "rulePassed": true,
+                      "transactionMemberCode": "H1FYP0T32WU5VL3",
+                      "exchangeMemberId": "63811527"
+                    },
+                    {
+                      "ruleId": "NHS5WV07S2N3AJ9",
+                      "ruleName": "EXCH_MEM_ID",
+                      "rulePassed": true,
+                      "transactionMemberCode": "H1FYP0T32WU5VL3",
+                      "exchangeMemberId": "63811527"
+                    },
+                    {
+                      "ruleId": "AU3IUZ2FTSAFAV7",
+                      "ruleName": "DATE_OF_BIRTH",
+                      "rulePassed": true,
+                      "transactionMemberCode": "ZGGX2QXG25OA3I0",
+                      "exchangeMemberId": "63811527"
+                    },
+                    {
+                      "ruleId": "84WNR9KAS23XKP3",
+                      "ruleName": "GENDER",
+                      "rulePassed": true,
+                      "transactionMemberCode": "ZGGX2QXG25OA3I0",
+                      "exchangeMemberId": "63811527"
+                    }
+                  ]
+                },
+                "expectedAccountDto": {
+                  "accountNumber": "RVUM1PNZ9BR9LR7",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "ztcn": "01FDI1CZH7CUCAD",
+                  "source": "MARKETPLACE",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "VQ7192KUV6P6VYE",
+                      "stateTypeCode": "MA",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "MA_BU",
+                      "startDate": "2024-01-01",
+                      "endDate": "2024-12-31",
+                      "exchangeSubscriberId": "63811527",
+                      "planId": "23455MA0535265",
+                      "enrollmentType": "ACTIVE",
+                      "groupPolicyId": "43648764",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "PRE_MEMBER",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "effectiveReason": "MBS",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "GJX03YJPURYB2BH",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2024-01-01",
+                          "endDate": "2024-05-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 100.00,
+                          "aptcAmount": 82.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        },
+                        {
+                          "sequence": 2,
+                          "premiumSpanCode": "GJX04YJPURYB2BH",
+                          "ztcn": "02FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2024-07-01",
+                          "endDate": "2024-07-01",
+                          "statusTypeCode": "CANCEL",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 82.00,
+                          "aptcAmount": 100.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        },
+                        {
+                          "sequence": 3,
+                          "premiumSpanCode": "GJX05YJPURYB2BH",
+                          "ztcn": "03FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2024-06-01",
+                          "endDate": "2024-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 91.00,
+                          "aptcAmount": 91.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "members": [
+                    {
+                      "memberCode": "VH5S58WMYXG9EUJ",
+                      "firstName": "Kyle",
+                      "middleName": "W",
+                      "lastName": "Larsen",
+                      "relationshipTypeCode": "HOH",
+                      "dateOfBirth": "1982-05-16",
+                      "genderTypeCode": "MALE",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "memberAddresses": [
+                        {
+                          "memberAddressCode": "0KBU6XIG86QUXBD",
+                          "addressTypeCode": "RESIDENCE",
+                          "addressLine1": "693 Parker Rd.",
+                          "city": "Norton",
+                          "stateTypeCode": "MA",
+                          "fipsCode": "25005",
+                          "zipCode": "02766",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ],
+                      "memberIdentifiers": [
+                        {
+                          "memberIdentifierCode": "VKA88PGCKCK96H0",
+                          "identifierTypeCode": "SSN",
+                          "identifierValue": "657340439",
+                          "isActive": true,
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "active": true
+                        }
+                      ],
+                      "memberLanguages": [
+                        {
+                          "memberLanguageCode": "9K19UGWHJR6WJXR",
+                          "languageTypeCode": "WRITING",
+                          "languageCode": "eng",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        },
+                        {
+                          "memberLanguageCode": "PN9KNFS391S2BM4",
+                          "languageTypeCode": "SPEAKING",
+                          "languageCode": "eng",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ],
+                      "memberPhones": [
+                        {
+                          "memberPhoneCode": "WIDEWX0T1OMU9M8",
+                          "phoneTypeCode": "HOME",
+                          "phoneNumber": "704 365-1299",
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "source": "MARKETPLACE",
+                          "startDate": "2023-12-15"
+                        }
+                      ],
+                      "memberEmails": [
+                        {
+                          "memberEmailCode": "AKIJSGL1FLTYQ0A",
+                          "emailTypeCode": "PERSONAL",
+                          "email": "kyle.larsen@gmail.com",
+                          "source": "MARKETPLACE",
+                          "isPrimary": true,
+                          "ztcn": "01FDI1CZH7CUCAD",
+                          "startDate": "2023-12-15",
+                          "primary": true
+                        }
+                      ]
+                    }
+                  ],
+                  "brokers": [
+                    {
+                      "brokerCode": "S3CNW2WA9PAJU8N",
+                      "brokerName": "Devin Hill",
+                      "brokerId": "34812298",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "startDate": "2023-12-15"
+                    }
+                  ],
+                  "sponsors": [
+                    {
+                      "sponsorCode": "4QFORESL8LEBFSV",
+                      "sponsorId": "657340439",
+                      "sponsorName": "Kyle Larsen",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "startDate": "2023-12-15"
+                    }
+                  ],
+                  "payers": [
+                    {
+                      "payerCode": "1CBWBEY2FWBXAOP",
+                      "payerName": "Ambetter from Boston Health",
+                      "payerId": "060641619",
+                      "ztcn": "01FDI1CZH7CUCAD",
+                      "source": "MARKETPLACE",
+                      "startDate": "2023-12-15"
+                    }
+                  ]
+                },
+                "expectedPBAccountDto": {
+                  "accountNumber": "RVUM1PNZ9BR9LR7",
+                  "lineOfBusinessTypeCode": "HIX",
+                  "enrollmentSpans": [
+                    {
+                      "enrollmentSpanCode": "VQ7192KUV6P6VYE",
+                      "stateTypeCode": "MA",
+                      "marketplaceTypeCode": "FFM",
+                      "businessUnitTypeCode": "MA_BU",
+                      "startDate": "2024-01-01",
+                      "endDate": "2024-12-31",
+                      "exchangeSubscriberId": "63811527",
+                      "planId": "23455MA0535265",
+                      "enrollmentType": "ACTIVE",
+                      "groupPolicyId": "43648764",
+                      "productTypeCode": "HMO",
+                      "coverageTypeCode": "FAM",
+                      "delinqInd": false,
+                      "statusTypeCode": "PRE_MEMBER",
+                      "effectiveReason": "MBS",
+                      "premiumSpans": [
+                        {
+                          "sequence": 1,
+                          "premiumSpanCode": "GJX03YJPURYB2BH",
+                          "startDate": "2024-01-01",
+                          "endDate": "2024-05-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 100.00,
+                          "aptcAmount": 82.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        },
+                        {
+                          "sequence": 2,
+                          "premiumSpanCode": "GJX04YJPURYB2BH",
+                          "startDate": "2024-07-01",
+                          "endDate": "2024-07-01",
+                          "statusTypeCode": "CANCEL",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 82.00,
+                          "aptcAmount": 100.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        },
+                        {
+                          "sequence": 3,
+                          "premiumSpanCode": "GJX05YJPURYB2BH",
+                          "startDate": "2024-06-01",
+                          "endDate": "2024-12-31",
+                          "statusTypeCode": "ACTIVE",
+                          "csrVariant": "01",
+                          "totalPremiumAmount": 182.00,
+                          "totalResponsibleAmount": 91.00,
+                          "aptcAmount": 91.00,
+                          "memberPremiumSpans": [
+                            {
+                              "memberCode": "VH5S58WMYXG9EUJ",
+                              "exchangeMemberId": "63811527",
+                              "individualPremiumAmount": 182.00
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             }
