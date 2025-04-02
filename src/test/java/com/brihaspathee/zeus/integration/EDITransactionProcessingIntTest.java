@@ -202,13 +202,11 @@ public class EDITransactionProcessingIntTest {
      * This method tests the processing of the transaction
      * @param repetitionInfo the repetition identifies the test iteration
      */
-    @RepeatedTest(64) // total - 67
+    @RepeatedTest(50) // total - 67
     @Order(1)
     void testProcessTransaction(RepetitionInfo repetitionInfo) throws IOException, InterruptedException {
         if(Arrays.asList(environment.getActiveProfiles()).contains("int-test")){
-            if(repetitionInfo.getCurrentRepetition() == 62 ||
-                    repetitionInfo.getCurrentRepetition() == 63 ||
-                    repetitionInfo.getCurrentRepetition() == 64){
+            if(repetitionInfo.getCurrentRepetition() > 40){
                 testTransactions(repetitionInfo);
             }
 //            testTransactions(repetitionInfo);
